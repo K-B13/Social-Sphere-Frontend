@@ -1,7 +1,8 @@
 export default function Login( { handleSubmit, userDetails, returningUser } ) {
   return (
     <form
-    onSubmit={returningUser}
+    onSubmit={
+      returningUser}
     >
       <br />
       <label>Email</label>
