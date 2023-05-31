@@ -1,5 +1,8 @@
-export default function Post() {
+export default function Post({ post }) {
   return(
-    <h2>Post</h2>
+    <div>
+    <h3>{post.content}</h3>
+    <p>{post.author}</p>
+    </div>
   )
 }

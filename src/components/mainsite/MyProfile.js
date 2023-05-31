@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { userPosts } from "../../api/PostApis"
 import Posts from "./Posts"
+import UserInformation from "./UserInformation"
+import FriendList from "./FriendList"
 
 export default function MyProfile() {
 const [ userPostsList, setUserPostsList ] = useState([])
@@ -10,13 +12,15 @@ const [ userPostsList, setUserPostsList ] = useState([])
     .then((res) => res.json())
     .then((data) => setUserPostsList([...data.data]))
   }, [])
-  const renderPosts = userPostsList.map((post) => {
-    <Posts />
-  })
+
   return (
     <div>
-    <h2>Profile Page</h2>
-    {userPostsList.length? renderPosts: null}
+      <h2>{`${JSON.parse(localStorage.getItem('User Info')).email}'s Page`}</h2>
+      <UserInformation />
+      <FriendList />
+      <Posts 
+      userPostsList = {userPostsList}
+      />
     </div>
   )
   }

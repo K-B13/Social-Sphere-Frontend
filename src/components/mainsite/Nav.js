@@ -11,7 +11,7 @@ export default function Nav() {
   }
   return(
     <nav className="nav-bar">
-      <Link className="nav-link" to="/HomePage"><img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' width='35px' /></Link>
+      <Link className="nav-link" to="/MainSite"><img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' width='35px' /></Link>
       
       <Link className="nav-link" to='/FindFriends'>Find Friends</Link>
       

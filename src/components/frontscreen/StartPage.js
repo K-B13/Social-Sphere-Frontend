@@ -12,6 +12,7 @@ export default function StartPage() {
   })
 
   const navigate = useNavigate()
+  
 
   const handleSubmit =  (e) => {
     setUserDetails({...userDetails, [e.target.name]: e.target.value})

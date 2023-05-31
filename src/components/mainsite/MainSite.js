@@ -1,4 +1,3 @@
-import Nav from "./Nav";
 import { useEffect } from "react";
 import { currentUser } from "../../api/UserApis"
 export default function MainSite() {
@@ -15,7 +14,6 @@ export default function MainSite() {
   
   return(
     <div>
-      <Nav />
       <h1>Social Sphere</h1>
     </div>
   )
