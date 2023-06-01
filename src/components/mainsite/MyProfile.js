@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { userPosts, createPosts } from "../../api/PostApis"
+import { userPosts } from "../../api/PostApis"
 import Posts from "./Posts"
 import UserInformation from "./UserInformation"
 import FriendList from "./FriendList"
@@ -9,11 +9,13 @@ export default function MyProfile() {
 const [ userPostsList, setUserPostsList ] = useState([])
 const [ revealPost, setRevealPost ] = useState(false)
 const [ typeOfPost, setTypeOfPost ] = useState(0)
+
   useEffect(() => {
     const userInfo =JSON.parse(localStorage.getItem('User Info'))
     userPosts(userInfo.id)
     .then((res) => res.json())
-    .then((data) => setUserPostsList([...data.data]))
+    .then((data) => {
+      setUserPostsList([...data.data])})
   }, [])
 
   const showPosts = () => {
@@ -36,17 +38,22 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
       onClick={showPosts}
       >{revealPost? 'Hide CreatePost': 'Create Post'}</button>
       {revealPost ? <div>
-        <button
+        {typeOfPost === 1? null: <button
         onClick={showStatusUpdates}
-        >Status Update</button>
-        <button
+        >Status Update</button>}
+        {typeOfPost === 2? null: <button
         onClick={showImagePost}
-        >Post Image</button>
+        >Post Image</button>}
         </div>: null}
-      {typeOfPost === 1 ? <CreatePostForm />: null}
+      {typeOfPost === 1 ? <CreatePostForm
+      setRevealPost={setRevealPost} 
+      setUserPostsList={setUserPostsList}
+      setTypeOfPost={setTypeOfPost}
+      />: null}
       {typeOfPost === 2 ? "Work in progress": null}
       <hr />
-      <Posts 
+      <Posts
+      setUserPostsList= {setUserPostsList} 
       userPostsList = {userPostsList}
       />
     </div>
