@@ -26,9 +26,15 @@ export default function StartPage() {
   const returningUser = (e) => {
     e.preventDefault()
     loginUser(userDetails)
-    .then((response) => localStorage.setItem('Auth Token', JSON.stringify(response.headers.get('Authorization'))))
-    .then(() => navigate("/MainSite"))
+    .then((response) => {
+      if (response.ok) {
+      localStorage.setItem('Auth Token', JSON.stringify(response.headers.get('Authorization')))
+      navigate('/MainSite')
+    }
+      else console.log('you shall not pass')
+    })
   }
+
   return(
     <div>
       <h1>Social Sphere</h1>
