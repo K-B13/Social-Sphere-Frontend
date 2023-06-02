@@ -15,7 +15,7 @@ export default function CreatePostForm({ setUserPostsList, setRevealPost, setTyp
     .then((data) => {
       setRevealPost(false)
       setTypeOfPost(0)
-      setUserPostsList(data)
+      setUserPostsList([...data])
     })
   }
   return(
