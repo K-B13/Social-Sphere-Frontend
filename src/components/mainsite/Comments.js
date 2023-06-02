@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { postComments } from "../../api/CommentApis"
 import Comment from './Comment'
 
-export default function Comments({ user_id, post_id, userPostsList}){
-  const [ allComments, setAllComments ] = useState([])
+export default function Comments({ user_id, post_id, userPostsList, allComments, setAllComments }){
+  
   useEffect(() => {
     postComments(user_id, post_id)
     .then((res) => res.json())
@@ -16,6 +16,7 @@ export default function Comments({ user_id, post_id, userPostsList}){
         return <Comment 
         comment={comment}
         key={comment.id}
+        setAllComments={setAllComments}
         />
       })}
     </div>

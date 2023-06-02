@@ -17,8 +17,6 @@ export default function Nav() {
       
       <Link className="nav-link" to='/MyProfile'>My Profile</Link>
       
-      <p className="nav-link">Username</p>
-      
       <img className="nav-link" src='https://img.icons8.com/?size=2x&id=ywULFSPkh4kI&format=png' width='40px' />
       <button
       onClick={logout}

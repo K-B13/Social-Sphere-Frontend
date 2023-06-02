@@ -7,10 +7,14 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
   const [ showCreateComments, setShowCreateComments ] = useState(false)
+  const [ allComments, setAllComments ] = useState([])
   const deleteAPost = () => {
     deletePost(post.user_id, post.id)
     .then((res) => res.json())
     .then((data) => setUserPostsList(data))
+  }
+  const resetCommentButtons = () => {
+    setShowCreateComments(false)
   }
   return(
     <div>
@@ -34,7 +38,7 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
 
     <button
     onClick={() => {
-      setShowCreateComments(false)
+      resetCommentButtons()
       setShowComments(!showComments)
     }}
     >Comments</button>
@@ -46,12 +50,16 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
     {showCreateComments && <CreateComment 
     user_id={post.user_id}
     post_id={post.id}
+    setAllComments={setAllComments}
+    resetCommentButtons={resetCommentButtons}
     />}
 
     {showComments? <Comments
     userPostsList={userPostsList}
     user_id={post.user_id}
     post_id={post.id}
+    allComments={allComments}
+    setAllComments={setAllComments}
     />: null}
     </div>
   )

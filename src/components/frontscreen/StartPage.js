@@ -8,7 +8,8 @@ export default function StartPage() {
   const [ startMessage, setStartMessage ] = useState(0)
   const [ userDetails, setUserDetails ] = useState({
     email: "",
-    password: ""
+    password: "",
+    username: ""
   })
 
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ export default function StartPage() {
       if (res.ok) setStartMessage(1)
       else console.log("Didn't work")
     })
-    .then(() => setUserDetails({email:"",password:""}))
+    .then(() => setUserDetails({email:"",password:"", username: ""}))
   }
 
   const returningUser = (e) => {

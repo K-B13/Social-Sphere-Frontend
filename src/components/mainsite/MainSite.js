@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { currentUser } from "../../api/UserApis"
 export default function MainSite() {
-
+  const [userData, setUserData] = useState("")
   const loggedInUser = () => {
+    
     currentUser().then((res) => res.json())
-    .then((data) => localStorage.setItem('User Info', JSON.stringify(data)))
+    .then((data) => {
+      console.log(data)
+      localStorage.setItem('User Info', JSON.stringify(data))})
     // .catch((error) => console.log(error))
   }
 

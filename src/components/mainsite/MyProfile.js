@@ -15,8 +15,6 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
     userPosts(userInfo.id)
     .then((res) => res.json())
     .then((data) => {
-      // const newData = data.data.sort((a, b) =>  new Date(b.updated_at) - new Date(a.updated_at))
-      // console.log(newData)
       setUserPostsList([...data.data])})
   }, [])
 
@@ -33,7 +31,7 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
   }
   return (
     <div>
-      <h2>{`${JSON.parse(localStorage.getItem('User Info')).email}'s Page`}</h2>
+      <h2>{`${JSON.parse(localStorage.getItem('User Info')).username}'s Page`}</h2>
       <UserInformation />
       <FriendList />
       <button

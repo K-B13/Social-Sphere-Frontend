@@ -10,6 +10,12 @@ export default function SignUp( {newUser, handleSubmit, userDetails }) {
     value= {userDetails.email}
     />
     <br/><br />
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Username" 
+    onChange={handleSubmit} 
+    value= {userDetails.username}
+    />
+    <br/><br />
     <label>Password</label>
     <input type="password" name="password" placeholder="Password"
     onChange={handleSubmit} 

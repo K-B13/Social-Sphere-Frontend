@@ -1,12 +1,15 @@
 import { createComments } from "../../api/CommentApis"
 import { useState } from "react"
-export default function CreateComment({ user_id, post_id}){
+export default function CreateComment({ user_id, post_id, setAllComments, resetCommentButtons }){
   const [ commentForm, setCommentForm ] = useState('')
   const createNewComment = (e) => {
     e.preventDefault()
     createComments(user_id, post_id, commentForm)
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      resetCommentButtons()
+      setAllComments(data)
+    })
   }
 
   const handleChanges = (e) => {

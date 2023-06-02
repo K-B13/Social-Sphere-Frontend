@@ -7,7 +7,8 @@ export const createUser = (userInfo) => {
   body: JSON.stringify({
     user:{
       email: `${userInfo.email}`,
-      password: `${userInfo.password}`
+      password: `${userInfo.password}`,
+      username: `${userInfo.username}`
     }
     })
   })
@@ -22,7 +23,8 @@ export const loginUser = (userInfo) => {
   body: JSON.stringify({
     user:{
       email: `${userInfo.email}`,
-      password: `${userInfo.password}`
+      password: `${userInfo.password}`,
+      username: `${userInfo.username}`
     }
     })
   })

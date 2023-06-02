@@ -13,3 +13,9 @@ export const createComments = (user_id, post_id, comment_info) => {
     })
   })
 }
+
+export const deleteComment = (user_id, post_id, id) => {
+  return fetch(`http://localhost:4000/users/${user_id}/posts/${post_id}/comments/${id}`,
+  {method: 'DELETE'
+  })
+}
