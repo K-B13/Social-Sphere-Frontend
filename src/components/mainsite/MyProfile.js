@@ -7,6 +7,7 @@ import CreatePostForm from "./CreatePostForm"
 
 export default function MyProfile() {
 const [ userPostsList, setUserPostsList ] = useState([])
+const [ userDetails, setUserDetails ] = useState({})
 const [ revealPost, setRevealPost ] = useState(false)
 const [ typeOfPost, setTypeOfPost ] = useState(0)
 
@@ -15,6 +16,8 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
     userPosts(userInfo.id)
     .then((res) => res.json())
     .then((data) => {
+      console.log(userInfo)
+      setUserDetails(userInfo)
       setUserPostsList([...data.data])})
   }, [])
 
@@ -32,7 +35,9 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
   return (
     <div>
       <h2>{`${JSON.parse(localStorage.getItem('User Info')).username}'s Page`}</h2>
-      <UserInformation />
+      <UserInformation 
+      userDetails={userDetails}
+      />
       <FriendList />
       <button
       onClick={showPosts}
