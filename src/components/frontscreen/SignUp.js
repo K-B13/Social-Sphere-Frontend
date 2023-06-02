@@ -1,6 +1,3 @@
-
-import { useState } from "react";
-
 export default function SignUp( {newUser, handleSubmit, userDetails }) {
   return (
     <form

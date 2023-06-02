@@ -20,7 +20,12 @@ export default function StartPage() {
 
   const newUser = (e) => {
     e.preventDefault()
-    createUser(userDetails).then(() => setUserDetails({email:"",password:""}))
+    createUser(userDetails)
+    .then((res) => {
+      if (res.ok) setStartMessage(1)
+      else console.log("Didn't work")
+    })
+    .then(() => setUserDetails({email:"",password:""}))
   }
 
   const returningUser = (e) => {
