@@ -46,3 +46,13 @@ export const currentUser = () => {
   }
 })
 }
+
+export const updateUser = (id, newUserInfo) => {
+  return fetch(`http://localhost:4000/users/${id}`,
+  {method: 'PATCH',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({...newUserInfo})
+  })
+}

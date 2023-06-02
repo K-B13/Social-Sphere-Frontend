@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function UserInformation({ userDetails }) {
   return(
     <div>
@@ -6,6 +8,7 @@ export default function UserInformation({ userDetails }) {
       <p>Hometown: {userDetails.hometown ? userDetails.hometown: 'N/A'}</p>
       <p>Bio: {userDetails.bio ? userDetails.bio: 'N/A'}</p>
       <p>Date of Birth: {userDetails.dob ? userDetails.dob: 'N/A'}</p>
+      <Link to='/EditUser'>Edit</Link>
       <hr />
     </div>
   )

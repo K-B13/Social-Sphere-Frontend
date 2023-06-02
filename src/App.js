@@ -6,6 +6,7 @@ import MainSite from './components/mainsite/MainSite';
 import FindFriends from './components/mainsite/FindFriends';
 import MyProfile from './components/mainsite/MyProfile';
 import Nav from './components/mainsite/Nav';
+import EditUser from './components/mainsite/EditUser';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/MainSite" element={<MainSite />} />
         <Route path="/FindFriends" element={<FindFriends />} />
         <Route path="/MyProfile" element={<MyProfile />} />
+        <Route path="/EditUser" element={<EditUser />} />
       </Routes>
     </div>
   );
