@@ -6,9 +6,9 @@ import { useNavigate } from "react-router"
 export default function EditUser() {
   const [ newUserInfo, setNewUserInfo ] = useState({
     username: loadUserData().username,
-    name: `${loadUserData().name ? loadUserData().name: null}`,
-    hometown: `${loadUserData().hometown ? loadUserData().hometown: null}`,
-    bio: `${loadUserData().bio ? loadUserData().bio: null}`,
+    name: `${loadUserData().name ? loadUserData().name: 'N/A'}`,
+    hometown: `${loadUserData().hometown ? loadUserData().hometown: 'N/A'}`,
+    bio: `${loadUserData().bio ? loadUserData().bio: 'N/A'}`,
     dob: `${loadUserData().dob ? loadUserData().dob: null}`
   })
   const navigate = useNavigate()

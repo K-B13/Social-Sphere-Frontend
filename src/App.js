@@ -7,6 +7,7 @@ import FindFriends from './components/mainsite/FindFriends';
 import MyProfile from './components/mainsite/MyProfile';
 import Nav from './components/mainsite/Nav';
 import EditUser from './components/mainsite/EditUser';
+import ProfilePage from './components/mainsite/ProfilePage'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/FindFriends" element={<FindFriends />} />
         <Route path="/MyProfile" element={<MyProfile />} />
         <Route path="/EditUser" element={<EditUser />} />
+        <Route path="/:id" element={<ProfilePage />} />
       </Routes>
     </div>
   );

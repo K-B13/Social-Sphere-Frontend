@@ -56,3 +56,7 @@ export const updateUser = (id, newUserInfo) => {
   body: JSON.stringify({...newUserInfo})
   })
 }
+
+export const searchUsers = (searchQuery, searchKey) => {
+  return fetch(`http://localhost:4000/users/search?query=${searchQuery}&search_key=${searchKey}`)
+}
