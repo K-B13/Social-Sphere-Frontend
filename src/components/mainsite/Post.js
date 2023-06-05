@@ -3,8 +3,8 @@ import { useState } from "react"
 import PostForm from "./PostForm"
 import Comments from "./Comments"
 import CreateComment from "./CreateComment"
-import { isAuthor, loadUserData } from "../../helperFunctions/Helper"
-export default function Post({ post, setUserPostsList, userPostsList, index }) {
+import { isAuthor } from "../../helperFunctions/Helper"
+export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
   const [ showCreateComments, setShowCreateComments ] = useState(false)
@@ -12,7 +12,7 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
   const deleteAPost = () => {
     deletePost(post.user_id, post.id)
     .then((res) => res.json())
-    .then((data) => setUserPostsList(data))
+    .then((data) => setList(data))
   }
   const resetCommentButtons = () => {
     setShowCreateComments(false)
@@ -23,7 +23,7 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
     <PostForm 
     setUpdateForm={setUpdateForm}
     post={post}
-    setUserPostsList={setUserPostsList}
+    setList={setList}
     userPostsList={userPostsList}
     index={index}
     />
@@ -63,6 +63,7 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
     userPostsList={userPostsList}
     user_id={post.user_id}
     post_id={post.id}
+    post={post}
     allComments={allComments}
     setAllComments={setAllComments}
     />: null}

@@ -31,3 +31,7 @@ export const deletePost = (user_id, id) => {
   {method: 'DELETE'
   })
 }
+
+export const feed = (id) => {
+  return fetch(`http://localhost:4000/users/${id}/user_and_friends_posts`)
+}

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { updatePosts } from "../../api/PostApis"
 
-export default function PostForm({ post, setUserPostsList, setUpdateForm }) {
+export default function PostForm({ post, setList, setUpdateForm }) {
   const [ editedPost, setEditedPost ] = useState(post)
 
   const handleChange = (e) => {
@@ -14,7 +14,7 @@ export default function PostForm({ post, setUserPostsList, setUpdateForm }) {
     .then((res) => res.json())
     .then((data) => {
       setUpdateForm(false)
-      setUserPostsList([...data])
+      setList(data)
     })
   }
   return(

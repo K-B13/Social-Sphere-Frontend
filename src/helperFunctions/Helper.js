@@ -1,5 +1,5 @@
 export const isPostOwner = (comment) => { 
-  return comment.post_id === JSON.parse(localStorage.getItem('User Info')).username
+  return comment.author === JSON.parse(localStorage.getItem('User Info')).username
 }
 
 export const isAuthor = (comment) => {

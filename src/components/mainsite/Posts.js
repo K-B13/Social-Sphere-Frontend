@@ -1,13 +1,13 @@
 import Post from "./Post";
 
-export default function Posts({ userPostsList, setUserPostsList }) {
+export default function Posts({ userPostsList, setList }) {
   return(
     <div>
     {userPostsList.length? userPostsList.map((post, index) => {
       return <Post 
       post={post}
       key={post.id}
-      setUserPostsList={setUserPostsList}
+      setList={setList}
       userPostsList={userPostsList}
       index={index}
       /> 

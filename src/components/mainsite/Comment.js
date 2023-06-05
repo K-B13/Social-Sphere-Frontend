@@ -2,10 +2,10 @@ import { isPostOwner, isAuthor } from "../../helperFunctions/Helper"
 import { useState } from "react"
 import { deleteComment } from "../../api/CommentApis"
 import CommentForm from "./CommentForm"
-export default function Comment({ comment, setAllComments }) {
+export default function Comment({ comment, setAllComments, post }) {
 
   const [ updateCommentForm, setUpdateCommentForm ] = useState(false)
-  
+
   const deleteAComment = () => {
     deleteComment(comment.user_id, comment.post_id, comment.id)
     .then((res) => res.json())
@@ -28,7 +28,7 @@ export default function Comment({ comment, setAllComments }) {
       onClick={() => setUpdateCommentForm(!updateCommentForm)}
       >Update Comment</button>
       }
-      {(isAuthor(comment) || isPostOwner(comment)) && <button
+      {(isAuthor(comment) || isPostOwner(post)) && <button
       onClick={deleteAComment}
       >Delete Comment</button>}
     </div>

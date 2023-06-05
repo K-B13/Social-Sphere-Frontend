@@ -7,7 +7,10 @@ import CreatePostForm from "./CreatePostForm"
 import { retrieveFriends } from "../../api/FriendshipApis"
 
 export default function MyProfile() {
-const [ userPostsList, setUserPostsList ] = useState([])
+const [ userPostsList, setUserPostsList ] = useState({
+  userPosts: [],
+  posts: []
+})
 const [ userDetails, setUserDetails ] = useState({})
 const [ revealPost, setRevealPost ] = useState(false)
 const [ typeOfPost, setTypeOfPost ] = useState(0)
@@ -19,7 +22,7 @@ const [ sampleFriends, setSampleFriends ] = useState([])
     .then((res) => res.json())
     .then((data) => {
       setUserDetails(userInfo)
-      setUserPostsList([...data.data])})
+      setUserPostsList(data.data)})
     retrieveFriends(userInfo.id)
     .then((res) => res.json())
     .then((data) => setSampleFriends(data))
@@ -65,8 +68,8 @@ const [ sampleFriends, setSampleFriends ] = useState([])
       {typeOfPost === 2 ? "Work in progress": null}
       <hr />
       <Posts
-      setUserPostsList= {setUserPostsList} 
-      userPostsList = {userPostsList}
+      setList= {setUserPostsList} 
+      userPostsList = {userPostsList.userPosts}
       />
     </div>
   )

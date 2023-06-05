@@ -26,14 +26,11 @@ export default function ProfilePage() {
         setHasFriendRequest(data.hasFriendRequest)
         setIsFriend(data.isFriend)
         setUserPostsList(data.posts)
-        console.log(data)
         setUserInformations(data)}
     })
   }, [])
 
   const unFriend = () => {
-    console.log(userInformation.currentUser)
-    console.log(userInformation.user)
     deleteFriendship(userInformation.currentUser.id, userInformation.user.id)
     .then(() => setIsFriend(false))
   }
