@@ -3,6 +3,7 @@ import { useState } from "react"
 import PostForm from "./PostForm"
 import Comments from "./Comments"
 import CreateComment from "./CreateComment"
+import { isAuthor, loadUserData } from "../../helperFunctions/Helper"
 export default function Post({ post, setUserPostsList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
@@ -28,12 +29,16 @@ export default function Post({ post, setUserPostsList, userPostsList, index }) {
     />
     : <div><h3>{post.content}</h3>
     <p>Author: {post.author}</p></div>}
+    { isAuthor(post) ? 
+    <div>
     <button
     onClick={deleteAPost}
     >Delete Post</button>
     <button
     onClick={() => setUpdateForm(!updateForm)}
     >Update Post</button>
+    </div>
+    : null}
     <br />
 
     <button

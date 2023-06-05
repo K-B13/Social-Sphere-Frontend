@@ -6,11 +6,13 @@ import FriendList from "./FriendList"
 import { loadUserData } from "../../helperFunctions/Helper"
 import { createRequest } from "../../api/FriendRequestApis"
 import { deleteFriendship } from "../../api/FriendshipApis"
+import Posts from "./Posts"
 
 export default function ProfilePage() {
   const [ userInformation, setUserInformations ] = useState({})
   const [ hasFriendRequest, setHasFriendRequest ] = useState(true)
   const [ isFriend, setIsFriend ] = useState(false)
+  const [ userPostsList, setUserPostsList ] = useState([])
 
   const { userId } = useParams()
   const navigate = useNavigate()
@@ -23,6 +25,8 @@ export default function ProfilePage() {
       else {
         setHasFriendRequest(data.hasFriendRequest)
         setIsFriend(data.isFriend)
+        setUserPostsList(data.posts)
+        console.log(data)
         setUserInformations(data)}
     })
   }, [])
@@ -48,6 +52,7 @@ export default function ProfilePage() {
       />
       <FriendList 
       sampleFriends={userInformation.friends}
+      userId={userInformation.user.id}
       /> </div> : null}
 
       {!hasFriendRequest && 
@@ -64,6 +69,10 @@ export default function ProfilePage() {
       >Unfriend</button>:
       null
       }
+      <Posts
+      setUserPostsList= {setUserPostsList} 
+      userPostsList = {userPostsList}
+      />
     </div>
   )
 

@@ -3,7 +3,9 @@ import { useState } from "react"
 import { deleteComment } from "../../api/CommentApis"
 import CommentForm from "./CommentForm"
 export default function Comment({ comment, setAllComments }) {
+
   const [ updateCommentForm, setUpdateCommentForm ] = useState(false)
+  
   const deleteAComment = () => {
     deleteComment(comment.user_id, comment.post_id, comment.id)
     .then((res) => res.json())

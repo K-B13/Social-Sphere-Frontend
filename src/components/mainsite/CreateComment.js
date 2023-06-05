@@ -1,10 +1,12 @@
 import { createComments } from "../../api/CommentApis"
 import { useState } from "react"
+import { loadUserData } from "../../helperFunctions/Helper"
+
 export default function CreateComment({ user_id, post_id, setAllComments, resetCommentButtons }){
   const [ commentForm, setCommentForm ] = useState('')
   const createNewComment = (e) => {
     e.preventDefault()
-    createComments(user_id, post_id, commentForm)
+    createComments(user_id, post_id, commentForm, loadUserData().id)
     .then((res) => res.json())
     .then((data) => {
       resetCommentButtons()

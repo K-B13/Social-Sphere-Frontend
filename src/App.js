@@ -24,7 +24,7 @@ function App() {
         <Route path="/MyProfile" element={<MyProfile />} />
         <Route path="/EditUser" element={<EditUser />} />
         <Route path="/Requests" element={<RequestPage />} />
-        <Route path="/AllFriends" element={<AllFriends />} />
+        <Route path="/AllFriends/:id" element={<AllFriends />} />
         <Route path="/:userId" element={<ProfilePage />} />
       </Routes>
     </div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { loadUserData } from "../../helperFunctions/Helper"
 
 export default function UserInformation({ userDetails }) {
   return(
@@ -8,7 +9,9 @@ export default function UserInformation({ userDetails }) {
       <p>Hometown: {userDetails.hometown ? userDetails.hometown: 'N/A'}</p>
       <p>Bio: {userDetails.bio ? userDetails.bio: 'N/A'}</p>
       <p>Date of Birth: {userDetails.dob ? userDetails.dob: 'N/A'}</p>
-      <Link to='/EditUser'>Edit</Link>
+
+
+      {userDetails.id === loadUserData().id ?<Link to='/EditUser'>Edit</Link>: null}
       <hr />
     </div>
   )

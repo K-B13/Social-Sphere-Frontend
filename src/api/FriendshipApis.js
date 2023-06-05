@@ -5,5 +5,9 @@ export const deleteFriendship = (user_id, id) => {
 }
 
 export const retrieveFriends = (id) => {
-  return fetch(`http://localhost:4000//users/getFriends/${id}`)
+  return fetch(`http://localhost:4000/users/getFriends/${id}`)
+}
+
+export const getAllFriends = (id) => {
+  return fetch(`http://localhost:4000/users/allFriends/${id}`)
 }

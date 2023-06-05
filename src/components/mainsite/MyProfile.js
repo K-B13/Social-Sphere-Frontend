@@ -44,6 +44,7 @@ const [ sampleFriends, setSampleFriends ] = useState([])
       />
       <FriendList 
       sampleFriends={sampleFriends}
+      userId={userDetails.id}
       />
       <button
       onClick={showPosts}
