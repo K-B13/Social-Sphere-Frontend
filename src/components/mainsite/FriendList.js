@@ -1,7 +1,16 @@
-export default function FriendList() {
+import { Link } from "react-router-dom"
+export default function FriendList({ sampleFriends }) {
 return(
   <div>
-    <p>Friends</p>
+  { sampleFriends.length ? sampleFriends.map(friend => {
+  return(<div
+  key = {friend.id}
+  >
+    <p>{friend.name}</p>
+    <p>{friend.username}</p>
+  </div>)
+  }): null}
+  <Link to="/AllFriends" > ...</Link>
     <hr />
   </div>
 )

@@ -14,10 +14,14 @@ export default function Nav() {
       <Link className="nav-link" to="/MainSite"><img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' width='35px' /></Link>
       
       <Link className="nav-link" to='/FindFriends'>Find Friends</Link>
+
+      <Link className="nav-link" to='/Requests'>Requests</Link>
       
       <Link className="nav-link" to='/MyProfile'>My Profile</Link>
       
-      <img className="nav-link" src='https://img.icons8.com/?size=2x&id=ywULFSPkh4kI&format=png' width='40px' />
+      <Link className="nav-link" to='/EditUser'> 
+      <img src='https://img.icons8.com/?size=2x&id=ywULFSPkh4kI&format=png' width='40px' /> 
+      </Link>
       <button
       onClick={logout}
       >Log Out</button>

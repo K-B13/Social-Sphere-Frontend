@@ -60,3 +60,7 @@ export const updateUser = (id, newUserInfo) => {
 export const searchUsers = (searchQuery, searchKey) => {
   return fetch(`http://localhost:4000/users/search?query=${searchQuery}&search_key=${searchKey}`)
 }
+
+export const getUser = (user_id, id) => {
+  return fetch(`http://localhost:4000/users/${user_id}/friend_requests/${id}`)
+}

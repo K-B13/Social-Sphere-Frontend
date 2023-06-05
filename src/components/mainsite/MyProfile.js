@@ -4,21 +4,25 @@ import Posts from "./Posts"
 import UserInformation from "./UserInformation"
 import FriendList from "./FriendList"
 import CreatePostForm from "./CreatePostForm"
+import { retrieveFriends } from "../../api/FriendshipApis"
 
 export default function MyProfile() {
 const [ userPostsList, setUserPostsList ] = useState([])
 const [ userDetails, setUserDetails ] = useState({})
 const [ revealPost, setRevealPost ] = useState(false)
 const [ typeOfPost, setTypeOfPost ] = useState(0)
+const [ sampleFriends, setSampleFriends ] = useState([])
 
   useEffect(() => {
     const userInfo =JSON.parse(localStorage.getItem('User Info'))
     userPosts(userInfo.id)
     .then((res) => res.json())
     .then((data) => {
-      console.log(userInfo)
       setUserDetails(userInfo)
       setUserPostsList([...data.data])})
+    retrieveFriends(userInfo.id)
+    .then((res) => res.json())
+    .then((data) => setSampleFriends(data))
   }, [])
 
   const showPosts = () => {
@@ -38,7 +42,9 @@ const [ typeOfPost, setTypeOfPost ] = useState(0)
       <UserInformation 
       userDetails={userDetails}
       />
-      <FriendList />
+      <FriendList 
+      sampleFriends={sampleFriends}
+      />
       <button
       onClick={showPosts}
       >{revealPost? 'Hide CreatePost': 'Create Post'}</button>
