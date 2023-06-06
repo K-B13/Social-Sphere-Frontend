@@ -45,7 +45,7 @@ export default function MainSite() {
   
   return(
     <div>
-      <h1>Social Sphere</h1>
+      <h1>The Social Sphere</h1>
       <button
       onClick={showPosts}
       >{revealPost? 'Hide CreatePost': 'Create Post'}</button>

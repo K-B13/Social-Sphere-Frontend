@@ -43,7 +43,7 @@ export default function StartPage() {
 
   return(
     <div>
-      <h1>Social Sphere</h1>
+      <h1>The Social Sphere</h1>
       <img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' />
       <div>
         <button onClick={() => setStartMessage(1)}>Login</button>

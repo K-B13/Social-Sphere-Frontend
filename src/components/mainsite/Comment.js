@@ -1,15 +1,32 @@
-import { isPostOwner, isAuthor } from "../../helperFunctions/Helper"
+import { isPostOwner, isAuthor, loadUserData } from "../../helperFunctions/Helper"
 import { useState } from "react"
 import { deleteComment } from "../../api/CommentApis"
+import { registerLike } from "../../api/LikeApise"
 import CommentForm from "./CommentForm"
+
 export default function Comment({ comment, setAllComments, post }) {
 
   const [ updateCommentForm, setUpdateCommentForm ] = useState(false)
+  const [ commentLike, setCommentLike ] = useState({
+    like_count: comment.like_count,
+    liked_by: [...comment.liked_by]
+  })
 
   const deleteAComment = () => {
     deleteComment(comment.user_id, comment.post_id, comment.id)
+    .then((res) => res.json())  
+    .then((data) => {
+      setAllComments(data)})
+  }
+
+  const likeButton = () => {
+    registerLike(comment.user_id, 'comments', comment.id, JSON.parse(localStorage.getItem('Auth Token')))
     .then((res) => res.json())
-    .then((data) => setAllComments(data))
+    .then((data) => {
+      setCommentLike({
+      like_count: data.like_count,
+      liked_by: [...data.liked_by],
+    })})
   }
 
   return(
@@ -22,7 +39,20 @@ export default function Comment({ comment, setAllComments, post }) {
       <div>
         <p>{comment.content}</p>
       {comment.author && <p>{comment.author}</p>}
+      <p>Likes: {commentLike.like_count}</p>
+      <p>Liked by:
+      {commentLike.liked_by.map((info, index) => {
+        return index === 0 ? ` ${info}`: `, ${info}`
+      })}
+      </p>
       </div>}
+      {!commentLike.liked_by.includes(loadUserData().username) 
+    ? <button
+    onClick={likeButton}
+    >Like</button>
+    : null
+    }
+
       {isAuthor(comment) && 
       <button
       onClick={() => setUpdateCommentForm(!updateCommentForm)}
