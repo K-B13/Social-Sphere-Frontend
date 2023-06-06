@@ -42,15 +42,23 @@ export default function StartPage() {
   }
 
   return(
-    <div>
-      <h1>The Social Sphere</h1>
-      <img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' />
-      <div>
-        <button onClick={() => setStartMessage(1)}>Login</button>
-        <button onClick={() => setStartMessage(2)}>SignUp</button>
+    <div className='start-page'>
+      <h1 className='start-title'>The Social Sphere</h1>
+      <div className="start-logo">
+        <img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' />
       </div>
-      <div>
-        {startMessage === 0? <p>
+      <div className="start-buttons">
+        <button className="start-button"
+        onClick={() => setStartMessage(1)}>Login</button>
+        <button className="start-button"
+        onClick={() => setStartMessage(2)}>Sign Up</button>
+      </div>
+      <div className={startMessage === 0 ?"start-area": 'login-area'}>
+        {startMessage === 0? 
+        <div 
+        className="start-message">
+          <h2>Message from The Social Sphere Team</h2>
+          <p>
 Welcome to The Social Sphere, the online platform dedicated to uniting people from all walks of life! We are thrilled to have you join our vibrant community, where connections are made, ideas are shared, and friendships are formed.
 <br /><br />
 At The Social Sphere, we believe that true unity comes from embracing diversity. Our platform is designed to bring individuals together, regardless of their backgrounds, cultures, or beliefs. It's a place where you can discover new perspectives, engage in meaningful conversations, and foster a sense of belonging.
@@ -65,7 +73,9 @@ Welcome to The Social Sphere – where unity begins and friendships flourish. St
 <br /><br />
 Best regards,
 The Social Sphere Team
-</p>: null}
+</p>
+</div>
+: null}
         {startMessage === 1? <Login 
         handleSubmit={handleSubmit}
         returningUser={returningUser}

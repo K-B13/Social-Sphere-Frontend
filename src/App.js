@@ -1,4 +1,4 @@
-import './App.css';
+import './style/App.scss';
 import { useLocation } from 'react-router-dom';
 import { Route, Routes } from'react-router-dom';
 import StartPage from './components/frontscreen/StartPage';

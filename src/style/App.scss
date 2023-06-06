@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box
+}
+@import './StartPage.scss';
+
+.App {
+  text-align: center;
+}
+body {
+  background-image: radial-gradient(circle, #C322FF, #1c6cff);
+}
+
+.nav-bar { 
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+

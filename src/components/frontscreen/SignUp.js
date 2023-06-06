@@ -1,28 +1,34 @@
 export default function SignUp( {newUser, handleSubmit, userDetails }) {
   return (
-    <form
+    <form  className="signup-form"
     onSubmit={newUser}
     >
-    <br />
-    <label>Email</label>
-    <input type="text" name="email" placeholder="Email" 
-    onChange={handleSubmit} 
-    value= {userDetails.email}
-    />
-    <br/><br />
-    <label>Username</label>
-    <input type="text" name="username" placeholder="Username" 
-    onChange={handleSubmit} 
-    value= {userDetails.username}
-    />
-    <br/><br />
-    <label>Password</label>
-    <input type="password" name="password" placeholder="Password"
-    onChange={handleSubmit} 
-    value= {userDetails.password}
-    />
-    <br /><br />
-    <button type="submit">Sign In</button>
+    <div className="both-signup-inputs">
+      <div className="single-signup-input">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Type Email here" 
+        onChange={handleSubmit} 
+        value= {userDetails.email}
+        />
+      </div>
+      <div className="single-signup-input">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Type Username here" 
+        onChange={handleSubmit} 
+        value= {userDetails.username}
+        />
+      </div>
+      <div className="single-signup-input">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Type Password here"
+        onChange={handleSubmit} 
+        value= {userDetails.password}
+        />
+      </div>
+    </div>
+    <button 
+    className="login-button"
+    type="submit">Sign In</button>
   </form>
   );
 }
