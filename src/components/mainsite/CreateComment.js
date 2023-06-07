@@ -26,6 +26,7 @@ export default function CreateComment({ user_id, post_id, setAllComments, resetC
       <input 
       onChange={handleChanges}
       value = {commentForm}
+      type='text'
       />
 
       <button

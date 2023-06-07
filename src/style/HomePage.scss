@@ -1,0 +1,29 @@
+.homepage-feed{
+  // float:left;
+  width: 100vw;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+h1 {
+  background-color: #333333;
+  border-radius: 2rem;
+  width: 60%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 0;
+  color: #F5F7FF;
+}
+
+.comments {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width: 400px;
+  height: 60vh;
+  max-height: 800px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  overflow-y: auto;
+}

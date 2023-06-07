@@ -26,11 +26,12 @@ export default function AllFriends() {
 
   return(
     <div>
-      <h2>{listAllFriends.user? `${listAllFriends.user.username}'s Friends`: null}</h2>
+      {<h2 className="af-title" >{listAllFriends.user ? `${listAllFriends.user.username ? listAllFriends.user.username: "User"}'s Friends`: null}</h2>}
 
       <button
+      className="button-64"
       onClick={redirectFindFriends}
-      >Find Friends</button>
+      ><span>Find Friends</span></button>
 
       {listAllFriends.friends ? <Friends
       allPossibleAnswers={listAllFriends.friends}

@@ -9,10 +9,11 @@ export default function SentRequests({ allSent, user, setAllRequests }){
   }
 
   return(
-    <div>
+    <div className="sent-requests">
       {allSent.length ? allSent.map(request => {
       return (
       <div
+      className="sent"
       key={request.id}>
         <p>
           {request.receiver.name}
@@ -21,6 +22,7 @@ export default function SentRequests({ allSent, user, setAllRequests }){
           {request.receiver.username}
         </p>
         <button
+        className="rescind-btn"
         onClick = {() => {
           dealWithRequest('reject', request)
         }

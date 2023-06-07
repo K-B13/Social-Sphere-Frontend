@@ -43,10 +43,10 @@
 .start-button:hover {
   cursor: pointer;
   scale: 1.1;
-  border: 0.05rem solid #FF6F68;
+  border: 0.05rem solid #F5F7FF;
   border-radius: 1rem;
   padding: 0.35rem;
-  box-shadow: #FF6F68 0.2rem 0.2rem 0.4rem;
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
 }
 
 .start-area {
@@ -69,6 +69,10 @@
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.15);  
+  backdrop-filter: blur(20px);
+  border: none;
+  border-radius: 1rem;
 }
 
 .both-login-inputs {
@@ -86,26 +90,29 @@
   margin: 0 1rem 0 1rem;
   flex-grow: 1;
 }
+
 .single-login-input label {
   margin: 0 0 0.5rem 0;
 } 
 
 .single-login-input input {
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
   border-radius: 2rem;
-  padding: 0.2rem;
-  background-color: transparent;
+  padding: 0.5rem 0.2rem;
+  background-color: gray;
   border: none;
   color: #F5F7FF;
+  text-align: center;
 }
 
 .single-login-input input::placeholder {
   color: #F5F7FF;
   text-align: center;
+  opacity: 0.5;
 }
 
 .single-login-input input:hover {
-  box-shadow: #FF6F68 0.2rem 0.2rem 0.4rem;  
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;  
 }
 
 .login-button {
@@ -119,10 +126,10 @@
 .login-button:hover {
   cursor: pointer;
   scale: 1.05;
-  border: 0.05rem solid #FF6F68;
+  border: 0.05rem solid #F5F7FF;
   border-radius: 1rem;
   padding: 0.35rem;
-  box-shadow: #FF6F68 0.2rem 0.2rem 0.4rem;
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
 }
 
 .signup-form {
@@ -162,7 +169,7 @@
   flex-grow: 1;  
   border-radius: 2rem;
   padding: 0.2rem;
-  background-color: transparent;
+  background-color: gray;
   border: none;
   color: #F5F7FF;
 }
@@ -170,8 +177,9 @@
 .single-signup-input input::placeholder {
   color: #F5F7FF;
   text-align: center;
+  opacity: 0.5;
 }
 
 .single-signup-input input:hover {
-  box-shadow: #FF6F68 0.2rem 0.2rem 0.4rem;  
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;  
 }

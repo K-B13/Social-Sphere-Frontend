@@ -30,7 +30,7 @@ export default function Comment({ comment, setAllComments, post }) {
   }
 
   return(
-    <div>
+    <div className="comment">
       {updateCommentForm? <CommentForm 
       comment={comment}
       setAllComments={setAllComments}

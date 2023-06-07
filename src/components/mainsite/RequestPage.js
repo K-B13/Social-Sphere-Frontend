@@ -18,19 +18,23 @@ export default function RequestPage() {
   }, [])
 
   return(
-  <div>
-    <h3>Received Friend Requests</h3>
-    <ReceivedRequests
-    allReceived = {allRequests.receivedRequests}
-    user={allRequests.user}
-    setAllRequests={setAllRequests}
-    />
-    <h3>Sent Friend Requests</h3>
-    <SentRequests 
-    allSent = {allRequests.sentRequests}
-    user={allRequests.user}
-    setAllRequests={setAllRequests}
-    />
+  <div className="request-screen">
+    <div className="requests">
+      <h3>Received Friend Requests</h3>
+      <ReceivedRequests
+      allReceived = {allRequests.receivedRequests}
+      user={allRequests.user}
+      setAllRequests={setAllRequests}
+      />
+    </div>
+    <div className="requests">
+      <h3>Sent Friend Requests</h3>
+      <SentRequests 
+      allSent = {allRequests.sentRequests}
+      user={allRequests.user}
+      setAllRequests={setAllRequests}
+      />
+    </div>
   </div>
   )
 }

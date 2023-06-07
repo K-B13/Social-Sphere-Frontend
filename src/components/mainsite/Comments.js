@@ -11,7 +11,7 @@ export default function Comments({ user_id, post_id, userPostsList, allComments,
       setAllComments([...data.data])})
   }, [userPostsList])
   return(
-    <div>
+    <div className="comments">
       {allComments.map((comment) => {
         return <Comment 
         comment={comment}

@@ -26,8 +26,10 @@ export default function EditUser() {
 
   return (
     <form
+    className="edit-form"
     onSubmit={submitUserChanges}
     >
+      <div className="edit-section">
       <label>Username</label>
       <input 
       onChange={handleChange}
@@ -35,6 +37,9 @@ export default function EditUser() {
       name='username'
       autoComplete="off"
       />
+      </div>
+
+      <div className="edit-section">
       <label>Name</label>
       <input 
       onChange={handleChange}
@@ -42,6 +47,8 @@ export default function EditUser() {
       name='name'
       autoComplete="off"
       />
+      </div>
+      <div className="edit-section">
       <label>Hometown</label>
       <input 
       onChange={handleChange}
@@ -49,6 +56,8 @@ export default function EditUser() {
       name='hometown'
       autoComplete="off"
       />
+      </div>
+      <div className="edit-section">
       <label>Bio</label>
       <input 
       onChange={handleChange}
@@ -56,6 +65,8 @@ export default function EditUser() {
       name='bio'
       autoComplete="off"
       />
+      </div>
+      <div className="edit-section">
       <label>Date of Birth</label>
       <input 
       type='date'
@@ -63,7 +74,9 @@ export default function EditUser() {
       value={newUserInfo.dob}
       name='dob'
       />
+      </div>
       <button
+      className="button-86"
       type='submit'
       >Confirm</button>
     </form>

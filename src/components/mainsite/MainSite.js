@@ -44,8 +44,7 @@ export default function MainSite() {
   }
   
   return(
-    <div>
-      <h1>The Social Sphere</h1>
+    <div className="homepage-feed">
       <button
       onClick={showPosts}
       >{revealPost? 'Hide CreatePost': 'Create Post'}</button>

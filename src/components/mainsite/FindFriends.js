@@ -22,12 +22,19 @@ export default function FindFriends() {
 
   return (
     <div>
-      <h2>Find Friends</h2>
+      <h2
+      className="ff-title"
+      >Find Friends</h2>
+      
       <form
       onSubmit={findSomeFriends}
       >
-        <label htmlFor='search'>Search: </label>
+        <label htmlFor='search'
+        className="ff-label"
+        >Search: </label>
+        <div id='header-container'>
         <select id='search' defaultValue='none'
+        className="input"
         onChange={handleChangeSearchField}
         name='searchArea'
         >
@@ -44,14 +51,22 @@ export default function FindFriends() {
           value='hometown'
           >Hometown</option>
         </select>
+        </div>
         <input 
         type='text'
         placeholder="Search for friends"
         name='searchCriteria'
+        className="ff-input"
         onChange={handleChangeSearchField}
         />
-        <button type='submit'>Find</button>
+        <button 
+        className="button-64"
+        type='submit'>
+          <span
+          className="text"
+          >Find</span></button>
       </form>
+      
 
       <Friends 
       allPossibleAnswers={allPossibleAnswers}

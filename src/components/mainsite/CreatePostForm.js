@@ -24,9 +24,10 @@ export default function CreatePostForm({ setUserPostsList, setRevealPost, setTyp
     onSubmit={brandNewPost}
     >
       <label>Your Message</label>
-      <input
+      <textarea
       onChange={handleChange}
       value={commentForm}
+      type='text-box'
       />
       <button
       type='submit'
