@@ -25,7 +25,7 @@ export default function Nav() {
       <Link to='/EditUser'> 
       <img 
       className="user-icon" 
-      src='https://img.icons8.com/?size=2x&id=ywULFSPkh4kI&format=png' width='40px' /> 
+      src='https://img.icons8.com/?size=512&id=111473&format=png' width='40px' /> 
       </Link>
 
       <button

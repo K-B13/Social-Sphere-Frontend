@@ -9,7 +9,7 @@ import { registerLike } from "../../api/LikeApise"
 export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
-  const [ showCreateComments, setShowCreateComments ] = useState(false)
+
   const [ allComments, setAllComments ] = useState([])
   const [postLike, setPostLike ] = useState({
     like_count: post.like_count,
@@ -21,9 +21,9 @@ export default function Post({ post, setList, userPostsList, index }) {
     .then((res) => res.json())
     .then((data) => setList(data))
   }
-  const resetCommentButtons = () => {
-    setShowCreateComments(false)
-  }
+  // const resetCommentButtons = () => {
+  //   setShowCreateComments(false)
+  // }
   const likeButton = () => {
     registerLike(post.user_id, 'posts', post.id, JSON.parse(localStorage.getItem('Auth Token')))
     .then((res) => res.json())
@@ -70,13 +70,13 @@ export default function Post({ post, setList, userPostsList, index }) {
       </p>
     </div>}
 
+    {!showComments &&
     <button
     className="view-comment-btn"
     onClick={() => {
-      resetCommentButtons()
-      setShowComments(!showComments)
+      setShowComments(true)
     }}
-    >View Comments</button>
+    >View Comments</button>}
     </div>
     <div className="post-side extra-post">
     { isAuthor(post) ? 
@@ -99,14 +99,15 @@ export default function Post({ post, setList, userPostsList, index }) {
     onClick={(() => setShowCreateComments(!showCreateComments))}
     >Create Comment</button>} */}
 
-    {showCreateComments && <CreateComment 
+    {/* {showCreateComments && <CreateComment 
     user_id={post.user_id}
     post_id={post.id}
     setAllComments={setAllComments}
     resetCommentButtons={resetCommentButtons}
-    />}
+    />} */}
 
     {showComments? <Comments
+    setShowComments={setShowComments}
     userPostsList={userPostsList}
     user_id={post.user_id}
     post_id={post.id}

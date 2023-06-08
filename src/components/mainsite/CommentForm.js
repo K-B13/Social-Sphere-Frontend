@@ -22,7 +22,6 @@ export default function CommentForm({ comment, setAllComments, setUpdateCommentF
     <form
     onSubmit={updateAComment}
     >
-      <label>Comment Content: </label>
       <input
       name='content'
       value={editedComment.content}

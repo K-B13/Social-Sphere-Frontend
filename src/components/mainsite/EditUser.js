@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 
 export default function EditUser() {
   const [ newUserInfo, setNewUserInfo ] = useState({
-    username: loadUserData().username,
+    // username: loadUserData().username,
     name: `${loadUserData().name ? loadUserData().name: 'N/A'}`,
     hometown: `${loadUserData().hometown ? loadUserData().hometown: 'N/A'}`,
     bio: `${loadUserData().bio ? loadUserData().bio: 'N/A'}`,
@@ -29,7 +29,7 @@ export default function EditUser() {
     className="edit-form"
     onSubmit={submitUserChanges}
     >
-      <div className="edit-section">
+      {/* <div className="edit-section">
       <label>Username</label>
       <input 
       onChange={handleChange}
@@ -37,7 +37,7 @@ export default function EditUser() {
       name='username'
       autoComplete="off"
       />
-      </div>
+      </div> */}
 
       <div className="edit-section">
       <label>Name</label>
@@ -71,7 +71,7 @@ export default function EditUser() {
       <input 
       type='date'
       onChange={handleChange}
-      value={newUserInfo.dob}
+      value={newUserInfo.dob.split("T")[0]}
       name='dob'
       />
       </div>

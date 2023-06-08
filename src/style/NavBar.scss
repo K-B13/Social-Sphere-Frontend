@@ -32,7 +32,7 @@ nav {
 }
 
 .nav-bar-items a {
-  padding: 0.2rem 0.3rem 0.3rem 0.2rem;
+  padding: 0.3rem 0.3rem 0.2rem 0.2rem;
   color: #F5F7FF;
   text-decoration: none;
 }
@@ -45,12 +45,15 @@ nav {
 }
 
 .user-icon {
-  padding: 0.2rem 0.3rem 0.3rem 0.2rem;
+  // padding: 0.2rem 0.3rem 0.3rem 0.2rem;
+  margin: 0.2rem 0.3rem 0.3rem 0.2rem;
+  background-color: white;
+  border-radius: 2rem;
 }
 
 .user-icon:hover {
   scale: 1.1;
-  padding: 0.1rem 0.2rem 0.2rem 0.1rem;
+  // margin: 0.1rem 0.2rem 0.2rem 0.1rem;
 }
 
 .logout-btn {

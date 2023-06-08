@@ -56,6 +56,7 @@ export default function ProfilePage() {
       {!hasFriendRequest && 
       !isFriend &&
       <button
+      className="unfriend"
       onClick={() => {
         setHasFriendRequest(true)
         sendARequest()}}
@@ -63,10 +64,12 @@ export default function ProfilePage() {
       }
       {!hasFriendRequest && isFriend ?
       <button
+      className="unfriend"
       onClick={unFriend}
       >Unfriend</button>:
       null
       }
+
       <Posts
       setUserPostsList= {setUserPostsList} 
       userPostsList = {userPostsList}

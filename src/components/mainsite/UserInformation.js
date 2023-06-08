@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { loadUserData } from "../../helperFunctions/Helper"
+import { loadUserData, transformDate } from "../../helperFunctions/Helper"
 
 export default function UserInformation({ userDetails }) {
   return(
@@ -8,11 +8,11 @@ export default function UserInformation({ userDetails }) {
       <p>Name: {userDetails.name ? userDetails.name: 'N/A'}</p>
       <p>Hometown: {userDetails.hometown ? userDetails.hometown: 'N/A'}</p>
       <p>Bio: {userDetails.bio ? userDetails.bio: 'N/A'}</p>
-      <p>Date of Birth: {userDetails.dob ? userDetails.dob: 'N/A'}</p>
-
+      <p>Date of Birth: {userDetails.dob ? transformDate(userDetails.dob): 'N/A'}</p>
+      
       {userDetails.id === loadUserData().id ? <Link to='/EditUser'>
         <img src = 'https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
-        </Link>: null}
+        </Link>: <div></div>}
     </div>
   )
 }

@@ -10,7 +10,8 @@
   border-radius: 2rem;
   display: flex;
   margin: 1.7rem;
-  color: #F5F7FF
+  color: #F5F7FF;
+  max-height: 15rem;
 }
 
 .post:hover {
@@ -28,6 +29,7 @@
   flex-direction: column;
   margin: 1rem 0.3rem
 }
+
 .left-post div p {
   margin: 0;
 }
@@ -46,6 +48,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
+  flex-grow: 1;
 }
 
 .change-post button {
@@ -105,10 +108,23 @@
   z-index: -1;
   transition: width 150ms ease-in-out;
 }
+
 .view-comment-btn:hover {
   color: #F5F7FF;
   cursor: pointer;
 }
+
 .view-comment-btn:hover:after {
   width: 110%;
+}
+
+.post-update-form input {
+  border-radius: 2rem;
+  padding: 0.2rem;
+  background-color: gray;
+  border: none;
+  color: #F5F7FF;
+  line-height: 2rem;
+  text-align: center;
+  margin: 0.3rem 0 0.8rem 0;
 }

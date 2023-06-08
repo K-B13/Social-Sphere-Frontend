@@ -8,7 +8,6 @@ export default function MainSite() {
   const [ userFeed, setUserFeed ] = useState({
     posts: []
   })
-  const [ revealPost, setRevealPost ] = useState(false)
   const [ typeOfPost, setTypeOfPost ] = useState(0)
 
   const loggedInUser = () => {
@@ -31,10 +30,7 @@ export default function MainSite() {
     homeFeed()
   }, [])
 
-  const showPosts = () => {
-    setRevealPost(!revealPost)
-    setTypeOfPost(0)
-  }
+
   const showStatusUpdates = () => {
     setTypeOfPost(1)
   }
@@ -44,24 +40,42 @@ export default function MainSite() {
   }
   
   return(
-    <div className="homepage-feed">
-      <button
-      onClick={showPosts}
-      >{revealPost? 'Hide CreatePost': 'Create Post'}</button>
-      {revealPost ? <div>
+    <div className="homepage-feed"><div>
         {typeOfPost === 1? null: <button
+        className="create-post-icon"
         onClick={showStatusUpdates}
-        >Status Update</button>}
+        >
+          <img src='https://img.icons8.com/?size=512&id=qIZSSUb_zxBM&format=png' width='20px'/>
+        </button>}
         {typeOfPost === 2? null: <button
+        className="create-post-icon"
         onClick={showImagePost}
-        >Post Image</button>}
-        </div>: null}
+        >
+          <img src='https://img.icons8.com/?size=512&id=53433&format=png' width='20px' />
+        </button>}
+        </div>
       {typeOfPost === 1 ? <CreatePostForm
-      setRevealPost={setRevealPost} 
       setUserPostsList={setUserFeed}
       setTypeOfPost={setTypeOfPost}
       />: null}
-      {typeOfPost === 2 ? "Work in progress": null}
+      {typeOfPost === 2 ? 
+      <div className="image-upload">
+        <div className="post-side"></div>
+        <div className="post-image">
+        <img src='https://img.icons8.com/?size=512&id=33910&format=png' width='100px' />
+        <img src='https://img.icons8.com/?size=512&id=8965&format=png' width='90px' />
+        </div>
+        <div className="post-side">
+          <button 
+          onClick={() => setTypeOfPost(0)}
+          className="close">
+            <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
+          </button>
+          
+        </div>
+      </div>
+      : 
+      null}
       
       <Posts 
       setList= {setUserFeed} 

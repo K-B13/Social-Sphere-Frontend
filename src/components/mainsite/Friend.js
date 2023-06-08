@@ -5,8 +5,8 @@ export default function Friend({ friendInfo }) {
     <div className="friend">
       <Link to={`/${friendInfo.id}`}
       ><p>Username: {friendInfo.username}</p></Link>
-      <p>Name: {friendInfo.name}</p>
-      <p>Hometown: {friendInfo.hometown}</p>
+      <p>Name: {friendInfo.name ? friendInfo.name: 'N/A'}</p>
+      <p>Hometown: {friendInfo.hometown ? friendInfo.hometown: 'N/A'}</p>
     </div>
   )
 

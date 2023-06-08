@@ -56,11 +56,13 @@ const [ sampleFriends, setSampleFriends ] = useState([])
       >{revealPost? 'Hide CreatePost': 'Create Post'}</button> */}
       <div>
         {typeOfPost === 1? null: <button
+        className="create-post-icon"
         onClick={showStatusUpdates}
         >
           <img src='https://img.icons8.com/?size=512&id=qIZSSUb_zxBM&format=png' width='20px'/>
         </button>}
         {typeOfPost === 2? null: <button
+        className="create-post-icon"
         onClick={showImagePost}
         >
           <img src='https://img.icons8.com/?size=512&id=53433&format=png' width='20px' />
@@ -79,8 +81,8 @@ const [ sampleFriends, setSampleFriends ] = useState([])
         </div>
         <div className="post-side">
           <button 
-    onClick={() => setTypeOfPost(0)}
-    className="close">
+          onClick={() => setTypeOfPost(0)}
+          className="close">
             <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
       </button>
           

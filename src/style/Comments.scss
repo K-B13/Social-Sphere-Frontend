@@ -2,12 +2,78 @@
   position: absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
-  width: 400px;
+  transform: translate(-50%,-50%);
+  width: 35rem;
   height: 60vh;
   max-height: 800px;
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(2rem);
   border-radius: 2rem;
   overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.comments-side {
+  min-width: 3.5rem;
+}
+
+.comments-mid {
+  padding: 0.9rem 0.4rem;
+  flex-grow: 1;
+}
+
+.comments-mid form {
+  margin: 0 0 0.5rem 0;
+}
+
+.comments-mid form input {
+  border-radius: 2rem;
+  padding: 0.2rem;
+  background-color: gray;
+  border: none;
+  color: #F5F7FF;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.comments-mid form input::placeholder {
+  color: #F5F7FF;
+  text-align: center;
+}
+
+.cc-btn {
+  border-color: #333333;
+  color: #fff;
+  line-height: 2rem;
+  background-image: linear-gradient(45deg, #333333 50%, #1c6cff 50%);
+  border-radius: 2rem;
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+  padding: 0 0.6rem;
+  margin: 0 0.4rem;
+}
+
+.cc-btn:hover {
+  background-position: 0;
+  cursor: pointer;
+}
+
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
+  border-radius: 2rem;
+  margin: 0.4rem 0;
+}
+
+.comment-side {
+  min-width: 5rem;
+}
+
+.comment-mid {
+  flex-grow: 1;
 }

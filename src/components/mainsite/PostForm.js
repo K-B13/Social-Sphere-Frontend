@@ -20,8 +20,8 @@ export default function PostForm({ post, setList, setUpdateForm }) {
   return(
     <form
     onSubmit={updateAPost}
+    className='post-update-form'
     >
-      <label>Post Content: </label>
       <input
       name='content'
       value={editedPost.content}

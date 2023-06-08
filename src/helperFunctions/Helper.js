@@ -12,3 +12,12 @@ export const loadUserData = () => {
 export const setUserData = (data) => {
   localStorage.setItem('User Info', JSON.stringify(data))
 }
+export const transformDate = (isoDate) => {
+  const date = new Date(isoDate);
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  return date.toLocaleDateString(undefined, options);
+}

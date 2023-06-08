@@ -18,7 +18,9 @@
   justify-content: space-between;
   width: 15rem;
   color: #F5F7FF;
+  height: 15rem;
 }
+
 .user-information h3, .user-information p {
   margin: 0.2rem;
 }
@@ -110,6 +112,21 @@
   // padding: 2rem 0 0 0;
 }
 
+.create-post-icon {
+  background-color: #F5F7FF;
+  margin: 0 1.4rem;
+  border-radius: 2rem;
+  padding: 0.2rem 0.5rem;
+  width: 3.2rem;
+  height: 2rem;
+  border: none;
+}
+
+.create-post-icon:hover {
+  cursor: pointer;
+  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
+}
+
 .create-post-form label {
   margin: 2rem 0 0 0;
   color: #F5F7FF;
@@ -141,7 +158,7 @@
 // background: linear-gradient(90deg, #333333 0%, rgba(79,209,197,1) 100%);
   border: none;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24p #333333;
+  box-shadow: 12px 12px 24px #333333;
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
@@ -227,3 +244,24 @@ content: '';
   align-items: center;
   justify-content: space-around;
 }
+
+.unfriend {
+  border-radius: 2rem;
+  background-color: transparent;
+  font-weight: 600;
+  line-height: 2rem;
+  color: #F5F7FF;
+  border: none;
+  padding: 0.4rem 1rem;
+  line-height: 2rem;
+  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+}
+
+.unfriend:hover {
+  background-position: 0;
+  cursor: pointer;
+}
+

@@ -31,36 +31,56 @@ export default function Comment({ comment, setAllComments, post }) {
 
   return(
     <div className="comment">
-      {updateCommentForm? <CommentForm 
-      comment={comment}
-      setAllComments={setAllComments}
-      setUpdateCommentForm={setUpdateCommentForm}
-      />:
-      <div>
-        <p>{comment.content}</p>
-      {comment.author && <p>{comment.author}</p>}
-      <p>Likes: {commentLike.like_count}</p>
-      <p>Liked by:
-      {commentLike.liked_by.map((info, index) => {
-        return index === 0 ? ` ${info}`: `, ${info}`
-      })}
-      </p>
-      </div>}
-      {!commentLike.liked_by.includes(loadUserData().username) 
-    ? <button
-    onClick={likeButton}
-    >Like</button>
-    : null
-    }
+      <div className="comment-side extra-post left-post">
+      {!commentLike.liked_by.includes(loadUserData().username) ? 
+        <button
+        onClick={likeButton}
+        >
+          <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='20px' />
+        </button>
+        : null
+        }
+        <p>Likes: {commentLike.like_count}</p>
+      </div>
+      <div className="comment-mid">
+        {updateCommentForm ?
 
-      {isAuthor(comment) && 
-      <button
-      onClick={() => setUpdateCommentForm(!updateCommentForm)}
-      >Update Comment</button>
-      }
-      {(isAuthor(comment) || isPostOwner(post)) && <button
-      onClick={deleteAComment}
-      >Delete Comment</button>}
+        <CommentForm 
+        comment={comment}
+        setAllComments={setAllComments}
+        setUpdateCommentForm={setUpdateCommentForm}
+        />
+        :
+        <div>
+          <p>{comment.content}</p>
+
+          {comment.author && <p>{comment.author}</p>}
+          <p>Liked by:
+          {commentLike.liked_by.map((info, index) => {
+          return index === 0 ? ` ${info}`: `, ${info}`
+          })}
+          </p>
+        </div>
+        }
+
+      </div>
+      <div className='comment-side extra-post'>
+        <div className="change-post">
+        {(isAuthor(comment) || isPostOwner(post)) && <button
+        onClick={deleteAComment}
+        >
+          <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
+        </button>}
+
+        {isAuthor(comment) && 
+        <button
+        onClick={() => setUpdateCommentForm(!updateCommentForm)}
+        >
+          <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+        </button>
+        }
+        </div>
+      </div>
     </div>
   )
 }
