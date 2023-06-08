@@ -23,7 +23,7 @@
 .start-buttons {
   // border: 0.2rem black solid;
   border-radius: 2rem;
-  width: 30%;
+  width: 50%;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -32,21 +32,25 @@
 }
 
 .start-button {
-  border: none;
+  border-radius: 2rem;
   background-color: transparent;
-  padding: 0.4rem;
+  font-weight: 600;
+  line-height: 2rem;
   color: #F5F7FF;
-  font-weight: bold;
-  font-size: 1.2rem;
+  border: none;
+  // padding: 0.4rem 1rem;
+  line-height: 2rem;
+  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+  width: 8rem;
+  font-size: 1.5rem;
 }
 
 .start-button:hover {
+  background-position: 0;
   cursor: pointer;
-  scale: 1.1;
-  border: 0.05rem solid #F5F7FF;
-  border-radius: 1rem;
-  padding: 0.35rem;
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
 }
 
 .start-area {
@@ -116,20 +120,23 @@
 }
 
 .login-button {
-  border: none;
+  border-radius: 2rem;
   background-color: transparent;
-  padding: 0.4rem;
+  font-weight: 600;
+  line-height: 2rem;
   color: #F5F7FF;
-  font-weight: bold;  
+  border: none;
+  padding: 0.4rem 1rem;
+  line-height: 2rem;
+  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;  
 }
 
 .login-button:hover {
+  background-position: 0;
   cursor: pointer;
-  scale: 1.05;
-  border: 0.05rem solid #F5F7FF;
-  border-radius: 1rem;
-  padding: 0.35rem;
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
 }
 
 .signup-form {
@@ -141,7 +148,22 @@
   align-items: center;
   flex-grow: 1;
   height: 10rem;
+  background-color: rgba(255, 255, 255, 0.15);  
+  backdrop-filter: blur(20px);
+  border: none;
+  border-radius: 1rem;
 }
+// padding: 0;
+// margin: 0.5rem 0 1rem 0;
+// display: flex;
+// flex-direction: column;
+// justify-content: space-between;
+// align-items: center;
+// flex-grow: 1;
+// background-color: rgba(255, 255, 255, 0.15);  
+// backdrop-filter: blur(20px);
+// border: none;
+// border-radius: 1rem;
 
 .both-signup-inputs {
   display: flex;
@@ -182,4 +204,26 @@
 
 .single-signup-input input:hover {
   box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;  
+}
+
+.login-message {
+  height: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .start-title {
+    width: 80%;
+  }
+  .both-signup-inputs {
+    flex-direction: column;
+  }
+  .both-login-inputs {
+    flex-direction: column;
+  }
+  .start-area {
+    width: 85%;
+  }
+  .signup-form {
+    height: 14rem;
+  }
 }

@@ -10,14 +10,13 @@ export default function MainSite() {
   })
   const [ typeOfPost, setTypeOfPost ] = useState(0)
 
-  const loggedInUser = () => {
-    currentUser().then((res) => res.json())
+  const loggedInUser = async () => {
+    await currentUser()
+    .then((res) => res.json())
     .then((data) => {
       localStorage.setItem('User Info', JSON.stringify(data))})
     // .catch((error) => console.log(error))
-  }
 
-  const homeFeed = () => {
     feed(loadUserData().id)
     .then((res) => res.json())
     .then((data) => {
@@ -25,9 +24,17 @@ export default function MainSite() {
     })
   }
 
+  // const homeFeed = () => {
+    
+  // }
+
+  // const login = async () => {
+  //   await loggedInUser()
+  //   await homeFeed()
+  // }
+
   useEffect(() => {
     loggedInUser()
-    homeFeed()
   }, [])
 
 

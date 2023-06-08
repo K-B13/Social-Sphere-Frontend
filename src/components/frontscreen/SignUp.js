@@ -26,9 +26,11 @@ export default function SignUp( {newUser, handleSubmit, userDetails }) {
         />
       </div>
     </div>
+    <div>
     <button 
     className="login-button"
     type="submit">Sign In</button>
+    </div>
   </form>
   );
 }

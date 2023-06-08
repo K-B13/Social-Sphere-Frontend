@@ -11,6 +11,8 @@ export default function StartPage() {
     password: "",
     username: ""
   })
+  const [errorMessageStatus, setErrorMessageStatus] = useState(false)
+  const [ errorMessage, setErrorMessage] = useState("")
 
   const navigate = useNavigate()
   
@@ -22,9 +24,13 @@ export default function StartPage() {
   const newUser = (e) => {
     e.preventDefault()
     createUser(userDetails)
+    .then(res => res.json())
     .then((res) => {
-      if (res.ok) setStartMessage(1)
-      else console.log("Didn't work")
+      if (res.data) setStartMessage(1)
+      else {
+        setErrorMessage(res.status.message)
+        setErrorMessageStatus(true)
+      }
     })
     .then(() => setUserDetails({email:"",password:"", username: ""}))
   }
@@ -37,7 +43,10 @@ export default function StartPage() {
       localStorage.setItem('Auth Token', JSON.stringify(response.headers.get('Authorization')))
       navigate('/MainSite')
     }
-      else console.log('you shall not pass')
+      else {
+        setErrorMessage('Invalid Email or Password')
+        setErrorMessageStatus(true)
+      }
     })
   }
 
@@ -47,12 +56,24 @@ export default function StartPage() {
       <div className="start-logo">
         <img src='https://img.icons8.com/?size=2x&id=rJe96vXFGcP6&format=png' />
       </div>
+      
       <div className="start-buttons">
         <button className="start-button"
-        onClick={() => setStartMessage(1)}>Login</button>
+        onClick={() => {
+          setErrorMessageStatus(false)
+          setStartMessage(1)}}
+        
+        >Login</button>
         <button className="start-button"
-        onClick={() => setStartMessage(2)}>Sign Up</button>
+        onClick={() => {
+          setErrorMessageStatus(false)
+          setStartMessage(2)}
+        
+        }>Sign Up</button>
       </div>
+      <div
+      className="login-message"
+      >{errorMessageStatus && <p>{errorMessage}</p>}</div>
       <div className={startMessage === 0 ?"start-area": 'login-area'}>
         {startMessage === 0? 
         <div 

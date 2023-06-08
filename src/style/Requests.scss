@@ -195,3 +195,14 @@
 .rescind-btn:hover:after {
   width: 110%;
 }
+
+@media screen and (max-width: 600px) { 
+  .request-screen {
+    flex-direction: column;
+    height: 70%;
+  }
+  .requests {
+    height: 40vh;
+    overflow-y: auto;
+  }
+}

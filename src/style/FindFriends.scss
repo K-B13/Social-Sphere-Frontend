@@ -124,3 +124,12 @@ select option {
   font-weight: bold;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 800px) { 
+  .friend {
+    width: 85vw;
+  }
+  .ff-title {
+    width: 60%;
+  }
+}

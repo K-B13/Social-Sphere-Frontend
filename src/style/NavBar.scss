@@ -64,13 +64,26 @@ nav {
   color: #F5F7FF;
   font-weight: bold;
   font-size: 0.9rem;
+  background-image: linear-gradient(45deg, gray 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+  border-radius:  2rem;
 }
 
 .logout-btn:hover {
   cursor: pointer;
   scale: 1.2;
-  border: 0.05rem solid #F5F7FF;
-  border-radius: 1rem;
-  padding: 0.27rem;
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
+  // border: 0.05rem solid #F5F7FF;
+  // border-radius: 1rem;
+  // padding: 0.27rem;
+  // box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
+  background-position: 0;
 }
+
+@media screen and (max-width: 600px) { 
+  nav {
+    width: 95vw;
+  }
+}
+

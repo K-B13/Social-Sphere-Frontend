@@ -77,3 +77,9 @@
 .comment-mid {
   flex-grow: 1;
 }
+
+@media screen and (max-width: 650px) { 
+  .comments {
+    width: 30rem;
+  }
+}
