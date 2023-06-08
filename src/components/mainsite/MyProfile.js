@@ -12,7 +12,6 @@ const [ userPostsList, setUserPostsList ] = useState({
   posts: []
 })
 const [ userDetails, setUserDetails ] = useState({})
-const [ revealPost, setRevealPost ] = useState(false)
 const [ typeOfPost, setTypeOfPost ] = useState(0)
 const [ sampleFriends, setSampleFriends ] = useState([])
 
@@ -28,10 +27,10 @@ const [ sampleFriends, setSampleFriends ] = useState([])
     .then((data) => setSampleFriends(data))
   }, [])
 
-  const showPosts = () => {
-    setRevealPost(!revealPost)
-    setTypeOfPost(0)
-  }
+  // const showPosts = () => {
+  //   setRevealPost(!revealPost)
+  //   setTypeOfPost(0)
+  // }
   const showStatusUpdates = () => {
     setTypeOfPost(1)
   }
@@ -41,31 +40,54 @@ const [ sampleFriends, setSampleFriends ] = useState([])
   }
   return (
     <div>
-      <h2>{`${JSON.parse(localStorage.getItem('User Info')).username}'s Page`}</h2>
+      <h2 className="mp-title">{`${JSON.parse(localStorage.getItem('User Info')).username}'s Page`}</h2>
+      <div className='user-display'>
       <UserInformation 
       userDetails={userDetails}
       />
+      
       <FriendList 
       sampleFriends={sampleFriends}
       userId={userDetails.id}
       />
-      <button
+      </div>
+      {/* <button
       onClick={showPosts}
-      >{revealPost? 'Hide CreatePost': 'Create Post'}</button>
-      {revealPost ? <div>
+      >{revealPost? 'Hide CreatePost': 'Create Post'}</button> */}
+      <div>
         {typeOfPost === 1? null: <button
         onClick={showStatusUpdates}
-        >Status Update</button>}
+        >
+          <img src='https://img.icons8.com/?size=512&id=qIZSSUb_zxBM&format=png' width='20px'/>
+        </button>}
         {typeOfPost === 2? null: <button
         onClick={showImagePost}
-        >Post Image</button>}
-        </div>: null}
-      {typeOfPost === 1 ? <CreatePostForm
-      setRevealPost={setRevealPost} 
+        >
+          <img src='https://img.icons8.com/?size=512&id=53433&format=png' width='20px' />
+        </button>}
+      </div>
+      {typeOfPost === 1 ? <CreatePostForm 
       setUserPostsList={setUserPostsList}
       setTypeOfPost={setTypeOfPost}
       />: null}
-      {typeOfPost === 2 ? "Work in progress": null}
+      {typeOfPost === 2 ? 
+      <div className="image-upload">
+        <div className="post-side"></div>
+        <div className="post-image">
+        <img src='https://img.icons8.com/?size=512&id=33910&format=png' width='100px' />
+        <img src='https://img.icons8.com/?size=512&id=8965&format=png' width='90px' />
+        </div>
+        <div className="post-side">
+          <button 
+    onClick={() => setTypeOfPost(0)}
+    className="close">
+            <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
+      </button>
+          
+        </div>
+      </div>
+      : 
+      null}
       <hr />
       <Posts
       setList= {setUserPostsList} 

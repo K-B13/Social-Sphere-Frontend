@@ -44,13 +44,14 @@ export default function ProfilePage() {
 
   return(
     <div>
-      {userInformation.user ? <div><UserInformation 
-      userDetails={userInformation.user}
-      />
-      <FriendList 
-      sampleFriends={userInformation.friends}
-      userId={userInformation.user.id}
-      /> </div> : null}
+        {userInformation.user ? <div className="user-display"><UserInformation 
+        userDetails={userInformation.user}
+        />
+
+        <FriendList 
+        sampleFriends={userInformation.friends}
+        userId={userInformation.user.id}
+        /> </div> : null}
 
       {!hasFriendRequest && 
       !isFriend &&

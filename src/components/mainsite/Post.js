@@ -35,8 +35,22 @@ export default function Post({ post, setList, userPostsList, index }) {
   }
 
   return(
-    <div>
-    {updateForm? 
+    <div className="post">
+      <div className="post-side extra-post left-post">
+      <div>
+      {!postLike.liked_by.includes(loadUserData().username) 
+    ? <button
+    onClick={likeButton}
+    >
+      <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='20px' />
+    </button>
+    : null
+    }
+    <p>Likes: {postLike.like_count}</p>
+    </div> 
+      </div>
+      <div className='main-post-section'>
+    {updateForm ? 
     <PostForm 
     setUpdateForm={setUpdateForm}
     post={post}
@@ -44,46 +58,46 @@ export default function Post({ post, setList, userPostsList, index }) {
     userPostsList={userPostsList}
     index={index}
     />
-    : <div>
+    : 
+    <div className='post-content'>
+      
       <h3>{post.content}</h3>
-      <p>Likes: {postLike.like_count}</p>
+      <p>Author: {post.author}</p>
       <p>Liked by:
       {postLike.liked_by.map((info, index) => {
         return index === 0 ? ` ${info}`: `, ${info}`
       })}
       </p>
-      <p>Author: {post.author}</p>
     </div>}
 
-    {!postLike.liked_by.includes(loadUserData().username) 
-    ? <button
-    onClick={likeButton}
-    >Like</button>
-    : null
-    }
-
-    { isAuthor(post) ? 
-    <div>
     <button
-    onClick={deleteAPost}
-    >Delete Post</button>
-    <button
-    onClick={() => setUpdateForm(!updateForm)}
-    >Update Post</button>
-    </div>
-    : null}
-    <br />
-
-    <button
+    className="view-comment-btn"
     onClick={() => {
       resetCommentButtons()
       setShowComments(!showComments)
     }}
-    >Comments</button>
+    >View Comments</button>
+    </div>
+    <div className="post-side extra-post">
+    { isAuthor(post) ? 
+    <div className="change-post">
+    <button
+    onClick={deleteAPost}
+    >
+      <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
+    </button>
+    <button
+    onClick={() => setUpdateForm(!updateForm)}
+    >
+      <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+    </button>
+    </div>
+    : null}
+    </div>
 
-    {showComments && <button
+    {/* {showComments && <button
     onClick={(() => setShowCreateComments(!showCreateComments))}
-    >Create Comment</button>}
+    >Create Comment</button>} */}
 
     {showCreateComments && <CreateComment 
     user_id={post.user_id}

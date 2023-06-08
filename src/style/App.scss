@@ -8,10 +8,14 @@
 @import './EditUser.scss';
 @import './AllFriends.scss';
 @import './Requests.scss';
+@import './ProfilePage.scss';
+@import './Posts.scss';
+@import './Comments.scss';
 
 .App {
   text-align: center;
 }
+
 body {
   background-image: radial-gradient(circle, #C322FF, #1c6cff);
   max-height: 100vh;

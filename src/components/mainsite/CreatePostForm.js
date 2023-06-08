@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { createPosts } from "../../api/PostApis"
 
-export default function CreatePostForm({ setUserPostsList, setRevealPost, setTypeOfPost }) {
+export default function CreatePostForm({ setUserPostsList, setTypeOfPost }) {
   const [ commentForm, setCommentForm ] = useState("")
 
   const handleChange = (e) => {
@@ -13,14 +13,18 @@ export default function CreatePostForm({ setUserPostsList, setRevealPost, setTyp
     createPosts(JSON.parse(localStorage.getItem('User Info')).id, commentForm)
     .then((res) => res.json())
     .then((data) => {
-      setRevealPost(false)
+      // setRevealPost(false)
       setTypeOfPost(0)
       setUserPostsList(data)
     })
   }
   return(
-
-    <form
+    <div className="create-post">
+      <div
+      className="post-side"
+      ></div>
+    <form 
+    className="create-post-form"
     onSubmit={brandNewPost}
     >
       <label>Your Message</label>
@@ -28,10 +32,23 @@ export default function CreatePostForm({ setUserPostsList, setRevealPost, setTyp
       onChange={handleChange}
       value={commentForm}
       type='text-box'
+      className="post-description"
       />
-      <button
-      type='submit'
-      >Post Message</button>
+      <div className='wrap'>
+        <button
+        className="post-btn"
+        type='submit'
+        >Post Message</button>
+      </div>
     </form>
+    <div
+    className="post-side"
+    ><button 
+    onClick={() => setTypeOfPost(0)}
+    className="close">
+        <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
+      </button>
+    </div>
+    </div>
   )
 }
