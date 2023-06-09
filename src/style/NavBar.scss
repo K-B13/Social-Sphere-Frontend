@@ -22,6 +22,10 @@ nav {
 .nav-bar-logo a:hover {
   border-radius: 2rem;
   scale: 1.2;
+  animation-name: spin3D;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out
 }
 
 .nav-bar-items {
@@ -54,6 +58,10 @@ nav {
 .user-icon:hover {
   scale: 1.1;
   // margin: 0.1rem 0.2rem 0.2rem 0.1rem;
+  animation-name: spin3D;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out
 }
 
 .logout-btn {
@@ -79,6 +87,11 @@ nav {
   // padding: 0.27rem;
   // box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
   background-position: 0;
+}
+
+@keyframes spin3D {
+  from { transform: rotateY(0deg) }
+  to { transform: rotateY(360deg) }
 }
 
 @media screen and (max-width: 600px) { 

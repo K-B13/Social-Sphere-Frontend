@@ -20,6 +20,14 @@
   border-radius: 2rem;
 }
 
+.start-logo:hover {
+  animation-name: spin3D;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
 .start-buttons {
   // border: 0.2rem black solid;
   border-radius: 2rem;
