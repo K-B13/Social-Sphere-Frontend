@@ -125,12 +125,12 @@ end
 
 For the like model I originally wanted to use two models one for comments and one for posts. However, I discovered something called polymorphic association in rails which allowed me to achieve what I wanted and only use one model. Effectively what it does is allow you to have a dynamic foreign key link in the likes model. All I have to do is pass the name of the model I want to link with the likes model as well as the relevant Id, of the post or comment I was linking that specific like to, and it would work. It was also very simple to set up. All I needed to do was create a foreign key, the name could be anything I chose likeable as it was relevant to what I wanted it to achieve, and have polymorphic as true.
 
-	```ruby
+```ruby
 class Like < ApplicationRecord
 belongs_to :user
 belongs_to :likeable, polymorphic: true
 end
-	```
+```
 
 Afterwards I needed to go to the models I wanted to be able to have this connection and state that it has_many likes, as likeable (or whatever I chose the name to be). It was surprisingly simple and made my code a lot more efficient.
 
