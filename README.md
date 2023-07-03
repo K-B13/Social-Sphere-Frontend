@@ -58,10 +58,11 @@ Have high quality code:
 * Short and clear functions that do one thing
 * Efficient code - if you have your MVP, refactor
 DRY (Don’t Repeat Yourself) code
-Use one of these technology stacks. You may choose which tech stack.
-* Full-Stack Rails App
-* Rails API with React Front-End
-* Express API with React Front-End
+Use one of these technology stacks. 
+You may choose which tech stack.
+- Full-Stack Rails App
+- Rails API with React Front-End
+- Express API with React Front-End
 Be deployed on Heroku or similar platform
 Craft a README.md file that explains your app.
 
