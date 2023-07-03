@@ -15,25 +15,35 @@ This was a solo project done over 8 days.
 ## Technologies Used
 
 ### Front End
+
 * React
 * React Router
 * SASS
 * JSX
 * JavaScript
+
 ### Back End
+
 * Ruby on Rails
 * Devise
 * Devise-JWT
 * Ruby
+
 ### Database
+
 * PostgreSQL
+
 ### Code Version Control
+
 * Git
 * Github
+
 ### Design
+
 * Excalidraw
 
 ## Brief
+
 Build a full stack application. Must be your own work.
 Select a Project idea of your own
 Have at least 2 models (more if it makes sense).
@@ -62,18 +72,18 @@ Before I started any of the code, I made sure I planned out the project effectiv
 ### ERD’s
 
 I mapped out what models I would need and how they would be connected together through foreign key. This was very helpful as it helped me understand how data would flow through my project and how I would need to layout my models in the backend.
-[ERDs](ERDs.png)
+![ERDs](ERDs.png)
 
 ### Wireframe
 
 I drafted up a wireframe so I would have a general idea of what my app would look like. It was also helpful as it helped me understand what information I would need from the backend on each page. Also it allowed me to decide what basic features I would be striving towards and how the app would flow from page to page.
-[Wireframe](Wireframe2.png) [Wireframe](Wireframe.png)
+![Wireframe](Wireframe2.png) ![Wireframe](Wireframe.png)
 
 ### User Stories
 
 I decided to build on the basic features and create some user stories so I could figure how I could cater my app best to the user to maximise their experience. 
 
-[Userstories](UserStories.png)
+![Userstories](UserStories.png)
 
 I later realised my initial plan was too big and I would need to scale down a bit to meet the time constraints but would keep the other plans as future improvements.
 
