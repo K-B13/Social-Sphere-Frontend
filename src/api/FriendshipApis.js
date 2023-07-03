@@ -1,13 +1,15 @@
+import { apiUrl } from "./ApiConfig"
+
 export const deleteFriendship = (user_id, id) => {
-  return fetch(`http://localhost:4000/friendships/${user_id}/${id}`,
+  return fetch(`${apiUrl}/friendships/${user_id}/${id}`,
   {method: 'DELETE'
   })
 }
 
 export const retrieveFriends = (id) => {
-  return fetch(`http://localhost:4000/users/getFriends/${id}`)
+  return fetch(`${apiUrl}/users/getFriends/${id}`)
 }
 
 export const getAllFriends = (id) => {
-  return fetch(`http://localhost:4000/users/allFriends/${id}`)
+  return fetch(`${apiUrl}/users/allFriends/${id}`)
 }

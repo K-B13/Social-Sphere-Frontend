@@ -1,7 +1,7 @@
 import { isPostOwner, isAuthor, loadUserData } from "../../helperFunctions/Helper"
 import { useState } from "react"
 import { deleteComment } from "../../api/CommentApis"
-import { registerLike } from "../../api/LikeApise"
+import { registerLike } from "../../api/LikeApis"
 import CommentForm from "./CommentForm"
 
 export default function Comment({ comment, setAllComments, post }) {

@@ -1,9 +1,11 @@
+import { apiUrl } from "./ApiConfig"
+
 export const getAllSentRequests = (id) => {
-  return fetch(`http://localhost:4000/friend_requests/all_sent/${id}`)
+  return fetch(`${apiUrl}/friend_requests/all_sent/${id}`)
 }
 
 export const createRequest = (user_id, friend_id) => {
-  return fetch(`http://localhost:4000/friend_requests`,
+  return fetch(`${apiUrl}/friend_requests`,
   {method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -16,7 +18,7 @@ export const createRequest = (user_id, friend_id) => {
 }
 
 export const respondToFriendRequest = (userId, id, statusChange) => {
-  return fetch(`http://localhost:4000/friend_requests/${userId}/${id}`,
+  return fetch(`${apiUrl}/friend_requests/${userId}/${id}`,
   {method: 'PATCH',
   headers: {
     'Content-Type': 'application/json'

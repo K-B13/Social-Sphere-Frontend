@@ -1,5 +1,7 @@
+import { apiUrl } from "./ApiConfig"
+
 export const createUser = (userInfo) => {
-  return fetch(`http://localhost:4000/signup`,
+  return fetch(`${apiUrl}/signup`,
   {method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -15,7 +17,7 @@ export const createUser = (userInfo) => {
 }
 
 export const loginUser = (userInfo) => {
-  return fetch(`http://localhost:4000/login`,
+  return fetch(`${apiUrl}/login`,
   {method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -31,7 +33,7 @@ export const loginUser = (userInfo) => {
 }
 
 export const logoutUser = (token) => {
-  return fetch(`http://localhost:4000/logout`,
+  return fetch(`${apiUrl}/logout`,
   {method: 'DELETE',
   headers: {
     "Authorization": `${token}`
@@ -39,7 +41,7 @@ export const logoutUser = (token) => {
   })
 }
 export const currentUser = () => {
-  return fetch(`http://localhost:4000/current_user`,
+  return fetch(`${apiUrl}/current_user`,
   {method: 'GET',
   headers: {
     "Authorization": `${JSON.parse(localStorage.getItem('Auth Token'))}`
@@ -48,7 +50,7 @@ export const currentUser = () => {
 }
 
 export const updateUser = (id, newUserInfo) => {
-  return fetch(`http://localhost:4000/users/${id}`,
+  return fetch(`${apiUrl}/users/${id}`,
   {method: 'PATCH',
   headers: {
     'Content-Type': 'application/json'
@@ -58,9 +60,9 @@ export const updateUser = (id, newUserInfo) => {
 }
 
 export const searchUsers = (searchQuery, searchKey) => {
-  return fetch(`http://localhost:4000/users/search?query=${searchQuery}&search_key=${searchKey}`)
+  return fetch(`${apiUrl}/users/search?query=${searchQuery}&search_key=${searchKey}`)
 }
 
 export const getUser = (user_id, id) => {
-  return fetch(`http://localhost:4000/users/${user_id}/friend_requests/${id}`)
+  return fetch(`${apiUrl}/users/${user_id}/friend_requests/${id}`)
 }

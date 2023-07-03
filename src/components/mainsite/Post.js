@@ -4,7 +4,7 @@ import PostForm from "./PostForm"
 import Comments from "./Comments"
 import CreateComment from "./CreateComment"
 import { isAuthor, loadUserData } from "../../helperFunctions/Helper"
-import { registerLike } from "../../api/LikeApise"
+import { registerLike } from "../../api/LikeApis"
 
 export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)

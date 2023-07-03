@@ -236,6 +236,7 @@ content: '';
   overflow-y: auto;
   display: flex;
   justify-content: space-between;
+  z-index: 3;
 }
 
 .post-image {
