@@ -77,7 +77,7 @@ I mapped out what models I would need and how they would be connected together t
 ### Wireframe
 
 I drafted up a wireframe so I would have a general idea of what my app would look like. It was also helpful as it helped me understand what information I would need from the backend on each page. Also it allowed me to decide what basic features I would be striving towards and how the app would flow from page to page.
-![Wireframe](Wireframe2.png) ![Wireframe](Wireframe.png)
+![Wireframe](Wireframe.png) ![Wireframe](Wireframe2.png)
 
 ### User Stories
 
