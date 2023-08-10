@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { postComments } from "../../api/CommentApis"
 import Comment from './Comment'
 import CreateComment from './CreateComment'

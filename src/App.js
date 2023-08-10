@@ -10,6 +10,7 @@ import EditUser from './components/mainsite/EditUser';
 import ProfilePage from './components/mainsite/ProfilePage'
 import RequestPage from './components/mainsite/RequestPage';
 import AllFriends from './components/mainsite/AllFriends';
+import MessageBoard from './components/mainsite/MessageBoard';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       {location.pathname === '/' ? null: <Nav />}
       {location.pathname === '/' ? null: 
       <h1>The Social Sphere</h1>}
+      
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/MainSite" element={<MainSite />} />
@@ -27,6 +29,7 @@ function App() {
         <Route path="/EditUser" element={<EditUser />} />
         <Route path="/Requests" element={<RequestPage />} />
         <Route path="/AllFriends/:id" element={<AllFriends />} />
+        <Route path="/MessageBoard/:id" element={<MessageBoard />} />
         <Route path="/:userId" element={<ProfilePage />} />
       </Routes>
     </div>
