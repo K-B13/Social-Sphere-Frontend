@@ -9,7 +9,8 @@ export default function CreateComment({ user_id, post_id, setAllComments }){
     createComments(user_id, post_id, commentForm, loadUserData().id)
     .then((res) => res.json())
     .then((data) => {
-      setAllComments(data)
+      setAllComments(data);
+      setCommentForm('');
     })
   }
 

@@ -1,4 +1,4 @@
-import { isPostOwner, isAuthor, loadUserData } from "../../helperFunctions/Helper"
+import { isPostOwner, isAuthor, loadUserData, getToken } from "../../helperFunctions/Helper"
 import { useState } from "react"
 import { deleteComment } from "../../api/CommentApis"
 import { registerLike } from "../../api/LikeApis"
@@ -20,7 +20,7 @@ export default function Comment({ comment, setAllComments, post }) {
   }
 
   const likeButton = () => {
-    registerLike(comment.user_id, 'comments', comment.id, JSON.parse(localStorage.getItem('Auth Token')))
+    registerLike(comment.user_id, 'comments', comment.id, getToken())
     .then((res) => res.json())
     .then((data) => {
       setCommentLike({

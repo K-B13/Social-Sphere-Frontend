@@ -2,8 +2,7 @@ import { deletePost } from "../../api/PostApis"
 import { useState } from "react"
 import PostForm from "./PostForm"
 import Comments from "./Comments"
-import CreateComment from "./CreateComment"
-import { isAuthor, loadUserData } from "../../helperFunctions/Helper"
+import { getToken, isAuthor, loadUserData } from "../../helperFunctions/Helper"
 import { registerLike } from "../../api/LikeApis"
 
 export default function Post({ post, setList, userPostsList, index }) {
@@ -25,7 +24,7 @@ export default function Post({ post, setList, userPostsList, index }) {
   //   setShowCreateComments(false)
   // }
   const likeButton = () => {
-    registerLike(post.user_id, 'posts', post.id, JSON.parse(localStorage.getItem('Auth Token')))
+    registerLike(post.user_id, 'posts', post.id, getToken())
     .then((res) => res.json())
     .then((data) => {
       setPostLike({

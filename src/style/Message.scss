@@ -1,0 +1,23 @@
+.input {
+  background-color: gray
+}
+
+.sent-message, .received-message {
+  display: flex;
+}
+
+.sent-message {
+  justify-content: flex-start;
+  // flex-grow: 1;
+}
+
+.received-message {
+  justify-content: flex-end;
+}
+
+.message-container {
+  margin: 0 auto;
+  width: 30%;
+  height: 70vh;
+  overflow-y: auto;
+}

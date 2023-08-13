@@ -75,10 +75,6 @@ export default function ProfilePage() {
       >Message</Link>
       :null
       }
-      <button
-      onClick={() => console.log(userInformation)}
-      >user</button>
-
       <Posts
       setUserPostsList= {setUserPostsList} 
       userPostsList = {userPostsList}
