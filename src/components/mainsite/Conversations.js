@@ -1,16 +1,12 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getMessages, sendMessage } from '../../api/MessagesApi'
 import { miniApiUrl } from '../../api/ApiConfig'
 import ActionCable from 'actioncable'
-// import { ActionCableConsumer, ActionCableProvider } from 'react-actioncable-provider'
-
-
 
 export default function Conversations({ otherUserId, token, currentUserId }) {
   const cable = ActionCable.createConsumer(`ws://${miniApiUrl}/cable`)
   const [ messageInput, setMessageInput ] = useState('')
   const [ messages, setMessages ] = useState([])
-  const [ otherUser, setOtherUser ] = useState('')
 
   useEffect(() => {
     getMessages(otherUserId, token)
@@ -23,6 +19,7 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
     },
     {
       received(data){
+        console.log(data)
         setMessages(prevMessages => [...prevMessages, data]);
       }
     }
@@ -30,7 +27,7 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
     return () => {
       subscription.unsubscribe();
     };
-  }, [otherUserId, token, currentUserId]);
+  }, [otherUserId, currentUserId]);
   
   const handleMessageInput = (e) => {
     setMessageInput(e.target.value);
@@ -39,6 +36,7 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
   const submitMessage = (e) => {
     e.preventDefault();
     sendMessage(messageInput, otherUserId, token)
+    setMessageInput('')
   }
 
   return (
@@ -50,25 +48,26 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
         <div 
           className={message.user_id === currentUserId ? 'sent-message' : 'received-message'}
           key={message.id}>
-            <p>{message.content}</p>
-            <p>{message.user_id === currentUserId ? 'You': message.recipient_id}</p>
+            <p className='message-content'>{message.content}</p>
+            <p className='message-sender'>{message.user_id === currentUserId ? 'You': message.sender}</p>
         </div>)
       })}
       </div>
+      {otherUserId === '0' ? null: 
       <form
+      className='message-form'
         onSubmit={submitMessage}
       >
         <input type='text' className='input' 
         value = {messageInput}
         onChange={handleMessageInput}
+        placeholder='Message...'
         />
         <button
         type='submit'
+        className='message-submit'
         >Send</button>
-      </form>
-      <button
-      onClick={() => console.log(messages)}
-      >Test</button>
+      </form>}
     </div>
   )
 }
