@@ -16,7 +16,7 @@ if (window.location.hostname === 'localhost') {
   miniApiUrl = miniApiUrls.development;
 } else {
   apiUrl = apiUrls.production;
-  miniApiUrl = miniApiUrls.development;
+  miniApiUrl = miniApiUrls.production;
 }
 
 module.exports = { apiUrl, miniApiUrl }
