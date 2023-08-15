@@ -9,9 +9,15 @@ export const isAuthor = (comment) => {
 export const loadUserData = () => {
   return JSON.parse(localStorage.getItem('User Info'))
 }
+
 export const setUserData = (data) => {
   localStorage.setItem('User Info', JSON.stringify(data))
 }
+
+export const getToken = () => {
+  return JSON.parse(localStorage.getItem('Auth Token'))
+}
+
 export const transformDate = (isoDate) => {
   const date = new Date(isoDate);
   const options = {

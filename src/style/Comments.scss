@@ -3,8 +3,8 @@
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  width: 35rem;
-  height: 60vh;
+  width: 85vw;
+  height: 70vh;
   max-height: 800px;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2rem);
@@ -28,17 +28,17 @@
   margin: 0 0 0.5rem 0;
 }
 
-.comments-mid form input {
+.comments-mid form textarea {
   border-radius: 2rem;
   padding: 0.2rem;
   background-color: gray;
   border: none;
   color: #F5F7FF;
-  line-height: 2rem;
+  line-height: 0.8rem;
   text-align: center;
 }
 
-.comments-mid form input::placeholder {
+.comments-mid form textarea::placeholder {
   color: #F5F7FF;
   text-align: center;
 }
@@ -54,6 +54,8 @@
   transition: background 300ms ease-in-out;
   padding: 0 0.6rem;
   margin: 0 0.4rem;
+  position: relative;
+  top: -2rem;
 }
 
 .cc-btn:hover {
@@ -68,6 +70,7 @@
   box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
   border-radius: 2rem;
   margin: 0.4rem 0;
+  font-size: 0.8rem;
 }
 
 .comment-side {
@@ -78,11 +81,103 @@
   flex-grow: 1;
 }
 
+.comment-form {
+  resize: none;
+}
+
+.create-comment-area {
+  resize: none;
+  font-size: 0.8rem;
+}
+
+.edit-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-comment button {
+  margin: 0.4rem 0;
+}
+
+@media screen and (max-width: 950px) { 
+  .comment-form {
+    width: 23rem;
+  }
+
+  .create-comment-area {
+    width: 30rem;
+  }
+
+}
+
+@media screen and (max-width: 800px) { 
+  .comment-form {
+    width: 19rem;
+  }
+
+  .create-comment-area {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 715px) { 
+  .comment-form {
+    width: 15rem;
+  }
+}
+
 @media screen and (max-width: 650px) { 
   .comments {
     width: 100vw;
     top: 70%;
     left:70%;
     transform: translate(-70%,-70%);
+  }
+
+  .comment {
+    width: 95vw;
+  }
+
+  .comments-side {
+    min-width: 0;
+    transform: translate(-3.5rem)
+  }
+
+  .comment-side {
+    min-width: 2rem;
+  }
+
+  .extra-post {
+    transform: translate(-1rem);
+    width: 6rem;
+  }
+
+  .left-post {
+    transform: translate(0.5rem);
+  }
+  .comment-mid {
+    width: 30rem;
+  }
+}
+
+@media screen and (max-width: 500px) { 
+  .comment-form {
+    width: 12rem;
+  }
+
+  .create-comment-area {
+    width: 22rem;
+    margin: 0 3rem 0 0;
+  }
+
+  .cc-btn {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 410px) { 
+  .create-comment-area {
+    width: 18rem;
+    margin: 0 3rem 0 0;
   }
 }

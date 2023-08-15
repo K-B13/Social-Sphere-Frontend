@@ -7,6 +7,7 @@ import { loadUserData } from "../../helperFunctions/Helper"
 import { createRequest } from "../../api/FriendRequestApis"
 import { deleteFriendship } from "../../api/FriendshipApis"
 import Posts from "./Posts"
+import { Link } from "react-router-dom"
 
 export default function ProfilePage() {
   const [ userInformation, setUserInformations ] = useState({})
@@ -28,7 +29,7 @@ export default function ProfilePage() {
         setUserPostsList(data.posts)
         setUserInformations(data)}
     })
-  }, [])
+  }, [userId])
 
   const unFriend = () => {
     deleteFriendship(userInformation.currentUser.id, userInformation.user.id)
@@ -37,9 +38,6 @@ export default function ProfilePage() {
 
   const sendARequest =() => {
     createRequest(loadUserData().id, userId)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data, 'test')})
   }
 
   return(
@@ -69,7 +67,11 @@ export default function ProfilePage() {
       >Unfriend</button>:
       null
       }
-
+      {isFriend ? <Link to={`/MessageBoard/${userInformation.user.id}`}
+      className="unfriend"
+      >Message</Link>
+      :null
+      }
       <Posts
       setUserPostsList= {setUserPostsList} 
       userPostsList = {userPostsList}

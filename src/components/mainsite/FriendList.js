@@ -10,7 +10,9 @@ return(
   className="friend-username"
   key = {friend.id}
   >
-    <Link to={friend.id === loadUserData().id ? `/MyProfile` :`/${friend.id}`} >
+    <Link to={friend.id === loadUserData().id ? `/MyProfile` :
+    `/${friend.id}`
+    } >
     <p>{friend.username}</p>
     </Link>
     {/* <p>{friend.name}</p> */}

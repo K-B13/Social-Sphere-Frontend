@@ -9,7 +9,8 @@ export default function CreateComment({ user_id, post_id, setAllComments }){
     createComments(user_id, post_id, commentForm, loadUserData().id)
     .then((res) => res.json())
     .then((data) => {
-      setAllComments(data)
+      setAllComments(data);
+      setCommentForm('');
     })
   }
 
@@ -20,7 +21,9 @@ export default function CreateComment({ user_id, post_id, setAllComments }){
     <form
     onSubmit={createNewComment}
     >
-      <input
+      <textarea
+      className="create-comment-area"
+      rows="6" cols="70"
       placeholder="Create Comment..." 
       onChange={handleChanges}
       value = {commentForm}

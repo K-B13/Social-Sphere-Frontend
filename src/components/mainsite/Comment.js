@@ -1,8 +1,10 @@
-import { isPostOwner, isAuthor, loadUserData } from "../../helperFunctions/Helper"
+import { isPostOwner, isAuthor, loadUserData, getToken } from "../../helperFunctions/Helper"
 import { useState } from "react"
-import { deleteComment } from "../../api/CommentApis"
+import { deleteComment, updateComment } from "../../api/CommentApis"
 import { registerLike } from "../../api/LikeApis"
 import CommentForm from "./CommentForm"
+import Update from "../../update.png"
+
 
 export default function Comment({ comment, setAllComments, post }) {
 
@@ -11,6 +13,7 @@ export default function Comment({ comment, setAllComments, post }) {
     like_count: comment.like_count,
     liked_by: [...comment.liked_by]
   })
+  const [ editedComment, setEditedComment ] = useState(comment)
 
   const deleteAComment = () => {
     deleteComment(comment.user_id, comment.post_id, comment.id)
@@ -20,13 +23,27 @@ export default function Comment({ comment, setAllComments, post }) {
   }
 
   const likeButton = () => {
-    registerLike(comment.user_id, 'comments', comment.id, JSON.parse(localStorage.getItem('Auth Token')))
+    registerLike(comment.user_id, 'comments', comment.id, getToken())
     .then((res) => res.json())
     .then((data) => {
       setCommentLike({
       like_count: data.like_count,
       liked_by: [...data.liked_by],
     })})
+  }
+
+  const handleChange = (e) => {
+    setEditedComment({...editedComment, [e.target.name]: e.target.value})
+  }
+
+  const updateAComment = (e) => {
+    e.preventDefault()
+    updateComment(comment.user_id, comment.post_id, comment.id, editedComment.content)
+    .then((response) => response.json())
+    .then((data) => {
+      setUpdateCommentForm(false)
+      setAllComments([...data])
+    })
   }
 
   return(
@@ -49,6 +66,8 @@ export default function Comment({ comment, setAllComments, post }) {
         comment={comment}
         setAllComments={setAllComments}
         setUpdateCommentForm={setUpdateCommentForm}
+        handleChange={handleChange}
+        editedComment={editedComment}
         />
         :
         <div>
@@ -72,13 +91,23 @@ export default function Comment({ comment, setAllComments, post }) {
           <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
         </button>}
 
-        {isAuthor(comment) && 
-        <button
-        onClick={() => setUpdateCommentForm(!updateCommentForm)}
-        >
-          <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
-        </button>
-        }
+        <div className="edit-comment">
+          {updateCommentForm ? <button
+            onClick={updateAComment}
+          >
+            <img src={Update} width='20px' />
+          </button>: null}
+          {isAuthor(comment) && 
+          <button
+          onClick={() => {
+            setEditedComment(comment)
+            setUpdateCommentForm   (!updateCommentForm)
+          }}
+          >
+            <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+          </button>
+          }
+          </div>
         </div>
       </div>
     </div>

@@ -20,6 +20,8 @@ export default function Nav() {
 
       <Link className="nav-link" to='/Requests'>Requests</Link>
       
+      <Link className="nav-link" to='/MessageBoard/0' >Messaging</Link>
+
       <Link className="nav-link" to='/MyProfile'>My Profile</Link>
       
       <Link to='/EditUser'> 

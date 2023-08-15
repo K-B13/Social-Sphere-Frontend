@@ -9,7 +9,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow-y: auto;
-  height: 40vh;
+  max-height: 65vh;
+  
 }
 
 .post {
@@ -18,7 +19,7 @@
   display: flex;
   margin: 1.7rem;
   color: #F5F7FF;
-  max-height: 15rem;
+  // max-height: 15rem;
 }
 
 .post:hover {
@@ -66,6 +67,15 @@
 .change-post button:hover {
   cursor: pointer;
   scale: 1.1;
+}
+
+.edit-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-post button {
+  margin: 0.2rem 0;
 }
 
 .main-post-section {
@@ -125,20 +135,62 @@
   width: 110%;
 }
 
-.post-update-form input {
-  border-radius: 2rem;
-  padding: 0.2rem;
+.post-update-form textarea {
   background-color: gray;
   border: none;
   color: #F5F7FF;
-  line-height: 2rem;
-  text-align: center;
-  margin: 0.3rem 0 0.8rem 0;
 }
 
-@media screen and (max-width: 650px) { 
+@media screen and (max-width: 800px) { 
   .post-container, .pp-post-container {
     display: grid;
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 650px) { 
+  .post {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) { 
+  .post {
+    margin: 0.4rem 0.2rem;
+  }
+
+  .post-content h3 {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+
+  .post-content p {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+
+  .likes {
+    font-size: 0.8rem;
+  }
+
+  .change-post button img {
+    width: 18px;
+  }
+
+  .post-update-form textarea {
+    margin: 0.2rem 0 0 0;
+    resize: none;
+  }
+
+  .post-update-form p {
+    font-size: 0.8rem;
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+  .post-update-form textarea{
+    width: 8rem;
+  } 
+  
+} 

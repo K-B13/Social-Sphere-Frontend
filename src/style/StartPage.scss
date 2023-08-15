@@ -73,6 +73,10 @@
   justify-content: center;
 }
 
+// .login-area {
+//   width: 65vw;
+// }
+
 .login-form {
   padding: 0;
   margin: 0.5rem 0 1rem 0;
@@ -91,7 +95,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0.6rem 0.5rem 1.5rem 0.5rem;
-  width: 30rem;
+  width: 40rem;
   flex-grow: 1;
 }
 
@@ -155,23 +159,12 @@
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
-  height: 10rem;
+  min-height: 10rem;
   background-color: rgba(255, 255, 255, 0.15);  
   backdrop-filter: blur(20px);
   border: none;
   border-radius: 1rem;
 }
-// padding: 0;
-// margin: 0.5rem 0 1rem 0;
-// display: flex;
-// flex-direction: column;
-// justify-content: space-between;
-// align-items: center;
-// flex-grow: 1;
-// background-color: rgba(255, 255, 255, 0.15);  
-// backdrop-filter: blur(20px);
-// border: none;
-// border-radius: 1rem;
 
 .both-signup-inputs {
   display: flex;
@@ -215,23 +208,57 @@
 }
 
 .login-message {
-  height: 2rem;
+  margin: 0 0.5rem;
 }
 
 @media screen and (max-width: 800px) {
   .start-title {
     width: 80%;
   }
+
   .both-signup-inputs {
     flex-direction: column;
+    width: 85vw;
   }
+
+  .single-signup-input {
+    margin: 0.2rem;
+  }
+  
   .both-login-inputs {
     flex-direction: column;
+    width: 20rem;
   }
+
   .start-area {
     width: 85%;
   }
+
   .signup-form {
-    height: 14rem;
+    min-height: 14rem;
+  }
+
+}
+
+@media screen and (max-width: 540px) {
+  .start-title {
+    width: 95vw;
+  }
+
+  .start-buttons {
+    width: 85vw;
+  }
+
+  .start-button {
+    padding: 0 0.5rem;
+  }
+
+  .login-form {
+    // margin: 0 0.9rem;
+    width: 90vw;
+  }
+
+  .both-login-inputs {
+    width: 20rem;
   }
 }
