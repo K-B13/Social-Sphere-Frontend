@@ -15,7 +15,7 @@ export default function MainSite() {
     .then((res) => res.json())
     .then((data) => {
       localStorage.setItem('User Info', JSON.stringify(data))})
-    // .catch((error) => console.log(error))
+    .catch((error) => console.log(error))
 
     feed(loadUserData().id)
     .then((res) => res.json())
@@ -23,15 +23,6 @@ export default function MainSite() {
       setUserFeed(data)
     })
   }
-
-  // const homeFeed = () => {
-    
-  // }
-
-  // const login = async () => {
-  //   await loggedInUser()
-  //   await homeFeed()
-  // }
 
   useEffect(() => {
     loggedInUser()
