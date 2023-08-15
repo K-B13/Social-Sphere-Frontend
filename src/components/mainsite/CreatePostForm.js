@@ -47,7 +47,7 @@ export default function CreatePostForm({ setUserPostsList, setTypeOfPost }) {
     className="post-side"
     ><button 
     onClick={() => setTypeOfPost(0)}
-    className="close">
+    className="close-comment">
         <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
       </button>
     </div>

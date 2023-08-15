@@ -11,10 +11,12 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
   const bottomDiv = useRef(null)
 
   useEffect(() => {
+    // if(otherUserId !== '0'){
     getMessages(otherUserId, token)
       .then((response) => response.json())
       .then(data => {
         setMessages(data)})
+      // }
 
 
     const subscription = cable.subscriptions.create({

@@ -32,7 +32,7 @@ export default function Comments({ user_id, post_id, userPostsList, allComments,
       <div className="comments-side">
         <button 
           onClick={() => setShowComments(false)}
-          className="close">
+          className="close-comment">
             <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
         </button>
       </div>
