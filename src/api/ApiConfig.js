@@ -7,8 +7,8 @@ const apiUrls = {
 }
 
 const miniApiUrls = {
-  development: `localhost:${expressPort}`,
-  production: `thesocialsphere-1915b851fff9.herokuapp.com`
+  development: `ws://localhost:${expressPort}`,
+  production: `wss://thesocialsphere-1915b851fff9.herokuapp.com`
 }
 
 if (window.location.hostname === 'localhost') {

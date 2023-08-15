@@ -4,7 +4,7 @@ import { miniApiUrl } from '../../api/ApiConfig'
 import ActionCable from 'actioncable'
 
 export default function Conversations({ otherUserId, token, currentUserId }) {
-  const cable = ActionCable.createConsumer(`ws://${miniApiUrl}/cable`)
+  const cable = ActionCable.createConsumer(`${miniApiUrl}/cable`)
   
   const [ messages, setMessages ] = useState([])
 

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow-y: auto;
-  height: 80vh;
+  max-height: 80vh;
 }
 
 .pp-post-container {
