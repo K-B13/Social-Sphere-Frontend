@@ -33,6 +33,8 @@ export default function CreatePostForm({ setUserPostsList, setTypeOfPost }) {
       value={commentForm}
       type='text-box'
       className="post-description"
+      rows="22" cols="35"
+      placeholder='Write your message here...'
       />
       <div className='wrap'>
         <button

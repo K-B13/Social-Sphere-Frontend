@@ -38,9 +38,6 @@ export default function ProfilePage() {
 
   const sendARequest =() => {
     createRequest(loadUserData().id, userId)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data, 'test')})
   }
 
   return(

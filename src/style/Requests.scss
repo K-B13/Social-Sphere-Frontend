@@ -42,11 +42,15 @@
   border-radius: 2rem;
   margin: 0 0.5rem 1rem 0.5rem;
   color: #F5F7FF;
-  min-height: 9rem;
+  min-height: 4.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.sent p {
+  margin: 0.4rem 0;
 }
 
 .received {
@@ -54,10 +58,14 @@
   border-radius: 2rem;
   margin: 0 0.5rem 1rem 0.5rem;
   color: #F5F7FF;
-  min-height: 9rem;
+  min-height: 4.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.received p {
+  margin: 0.4rem 0;
 }
 
 .received-btns {
@@ -175,6 +183,7 @@
   width: 8rem;
   margin: 0.4rem auto;
 }
+
 .rescind-btn:after {
   content: "";
   position: absolute;
@@ -201,6 +210,11 @@
     flex-direction: column;
     height: 70%;
   }
+
+  .received {
+
+  }
+
   .requests {
     height: 40vh;
     overflow-y: auto;

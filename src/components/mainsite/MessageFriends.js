@@ -1,9 +1,15 @@
 import { useNavigate } from "react-router"
 
-export default function MessageFriends({ friends }) {
+export default function MessageFriends({ friends, setSidebar }) {
   const navigate = useNavigate()
   return (
     <div>
+      <button
+      className="only-sidebar"
+      onClick={() => setSidebar(false)}
+      >
+        X
+      </button>
       <h4>Friends</h4>
       {friends.map((friend, index) => {
         return (

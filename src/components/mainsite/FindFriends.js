@@ -34,7 +34,6 @@ export default function FindFriends() {
         >Search: </label>
         <div id='header-container'>
         <select id='search' defaultValue='none'
-        className="input"
         onChange={handleChangeSearchField}
         name='searchArea'
         >

@@ -21,7 +21,9 @@ export default function CreateComment({ user_id, post_id, setAllComments }){
     <form
     onSubmit={createNewComment}
     >
-      <input
+      <textarea
+      className="create-comment-area"
+      rows="6" cols="70"
       placeholder="Create Comment..." 
       onChange={handleChanges}
       value = {commentForm}

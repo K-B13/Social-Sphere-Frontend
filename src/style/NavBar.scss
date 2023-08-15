@@ -82,10 +82,6 @@ nav {
 .logout-btn:hover {
   cursor: pointer;
   scale: 1.2;
-  // border: 0.05rem solid #F5F7FF;
-  // border-radius: 1rem;
-  // padding: 0.27rem;
-  // box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
   background-position: 0;
 }
 
@@ -97,6 +93,52 @@ nav {
 @media screen and (max-width: 600px) { 
   nav {
     width: 95vw;
+  }
+
+  .nav-bar-logo {
+    padding: 0 0 0.4rem 0;
+  }
+
+  .nav-bar-logo a img {
+    width: 28px;
+  }
+
+  .nav-link:hover {
+    padding: 0 0.25rem;
+    scale: none;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .nav-bar-items a {
+    font-size: 0.8rem;
+  }
+
+  .user-icon {
+    width: 30px;
+  }
+
+  .logout-btn {
+    font-size: 0.8rem;
+    margin: 0 1rem 0 0;
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  nav {
+    width: 100vw;
+  }
+
+  .nav-bar-items a {
+    font-size: 0.72rem;
+  }
+
+  .nav-link:hover {
+    scale: none;
+    padding: 0 0.25rem;
+    text-decoration: none;
+    font-size: normal;
   }
 }
 

@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { getMessages, sendMessage } from '../../api/MessagesApi'
+import React, { useState, useEffect, useRef } from 'react'
+import { getMessages } from '../../api/MessagesApi'
 import { miniApiUrl } from '../../api/ApiConfig'
 import ActionCable from 'actioncable'
 
 export default function Conversations({ otherUserId, token, currentUserId }) {
   const cable = ActionCable.createConsumer(`ws://${miniApiUrl}/cable`)
-  const [ messageInput, setMessageInput ] = useState('')
+  
   const [ messages, setMessages ] = useState([])
+
+  const bottomDiv = useRef(null)
 
   useEffect(() => {
     getMessages(otherUserId, token)
@@ -14,12 +16,12 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
       .then(data => {
         setMessages(data)})
 
+
     const subscription = cable.subscriptions.create({
       channel: 'ConversationsChannel', convo_name: currentUserId
     },
     {
       received(data){
-        console.log(data)
         setMessages(prevMessages => [...prevMessages, data]);
       }
     }
@@ -27,25 +29,27 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
     return () => {
       subscription.unsubscribe();
     };
+    
   }, [otherUserId, currentUserId]);
-  
-  const handleMessageInput = (e) => {
-    setMessageInput(e.target.value);
+
+  const scrollToBottom = () => {
+    bottomDiv?.current.scrollIntoView({ behavior: 'smooth' });
+
   }
 
-  const submitMessage = (e) => {
-    e.preventDefault();
-    sendMessage(messageInput, otherUserId, token)
-    setMessageInput('')
-  }
+  useEffect(() => {
+    if(messages.length) scrollToBottom();
+  }, [messages])
 
   return (
     
-    <div >
-      <div className='message-container'>
+    <div>
+      <div className='message-container'
+      >
       {messages.map((message) => {
         return (
-        <div 
+        <div
+        ref={bottomDiv} 
           className={message.user_id === currentUserId ? 'sent-message' : 'received-message'}
           key={message.id}>
             <p className='message-content'>{message.content}</p>
@@ -53,21 +57,6 @@ export default function Conversations({ otherUserId, token, currentUserId }) {
         </div>)
       })}
       </div>
-      {otherUserId === '0' ? null: 
-      <form
-      className='message-form'
-        onSubmit={submitMessage}
-      >
-        <input type='text' className='input' 
-        value = {messageInput}
-        onChange={handleMessageInput}
-        placeholder='Message...'
-        />
-        <button
-        type='submit'
-        className='message-submit'
-        >Send</button>
-      </form>}
     </div>
   )
 }

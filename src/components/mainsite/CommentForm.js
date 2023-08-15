@@ -1,28 +1,13 @@
 import { useState } from "react"
 import { updateComment } from "../../api/CommentApis"
 
-export default function CommentForm({ comment, setAllComments, setUpdateCommentForm }) {
-  const [ editedComment, setEditedComment ] = useState(comment)
-
-  const handleChange = (e) => {
-    setEditedComment({...editedComment, [e.target.name]: e.target.value})
-  }
-
-  const updateAComment = (e) => {
-    e.preventDefault()
-    updateComment(comment.user_id, comment.post_id, comment.id, editedComment.content)
-    .then((response) => response.json())
-    .then((data) => {
-      setUpdateCommentForm(false)
-      setAllComments([...data])
-    })
-  }
+export default function CommentForm({ comment, handleChange, editedComment }) {
 
   return (
-    <form
-    onSubmit={updateAComment}
-    >
-      <input
+    <form>
+      <textarea
+      className="comment-form"
+      rows="8" cols="60"
       name='content'
       value={editedComment.content}
       onChange={handleChange}

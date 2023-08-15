@@ -16,10 +16,11 @@
   color: #F5F7FF;
   background-color: transparent;
   border: none;
-  padding: 15px;
+  padding: 1.2rem;
   cursor: pointer;
   border-radius: 2rem;
   font-weight: bold;
+  min-width: 15rem;
 }
 
 #search:hover {
@@ -99,7 +100,7 @@ select option {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  height: 45vh;
+  height: 65vh;
 }
 
 .friend {
@@ -108,6 +109,7 @@ select option {
   border-radius: 2rem;
   margin: 0 0 1rem 0;
   color: #F5F7FF;
+  font-size: 0.8rem;
 }
 
 .friend:hover {
@@ -129,6 +131,7 @@ select option {
   .friend {
     width: 85vw;
   }
+  
   .ff-title {
     width: 60%;
   }

@@ -4,10 +4,13 @@ import PostForm from "./PostForm"
 import Comments from "./Comments"
 import { getToken, isAuthor, loadUserData } from "../../helperFunctions/Helper"
 import { registerLike } from "../../api/LikeApis"
+import Update from "../../update.png"
+import { updatePosts } from "../../api/PostApis"
 
 export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
+  const [ editedPost, setEditedPost ] = useState(post)
 
   const [ allComments, setAllComments ] = useState([])
   const [postLike, setPostLike ] = useState({
@@ -20,9 +23,7 @@ export default function Post({ post, setList, userPostsList, index }) {
     .then((res) => res.json())
     .then((data) => setList(data))
   }
-  // const resetCommentButtons = () => {
-  //   setShowCreateComments(false)
-  // }
+
   const likeButton = () => {
     registerLike(post.user_id, 'posts', post.id, getToken())
     .then((res) => res.json())
@@ -31,6 +32,20 @@ export default function Post({ post, setList, userPostsList, index }) {
       like_count: data.like_count,
       liked_by: [...data.liked_by],
     })})
+  }
+
+  const handleChange = (e) => {
+    setEditedPost({...editedPost, [e.target.name]: e.target.value})
+  }
+
+  const updateAPost = (e) => {
+    e.preventDefault()
+    updatePosts(editedPost.user_id, editedPost.id, editedPost.content)
+    .then((res) => res.json())
+    .then((data) => {
+      setUpdateForm(false)
+      setList(data)
+    })
   }
 
   return(
@@ -45,17 +60,16 @@ export default function Post({ post, setList, userPostsList, index }) {
     </button>
     : null
     }
-    <p>Likes: {postLike.like_count}</p>
+    <p className="likes">Likes: {postLike.like_count}</p>
     </div> 
       </div>
       <div className='main-post-section'>
     {updateForm ? 
     <PostForm 
-    setUpdateForm={setUpdateForm}
     post={post}
-    setList={setList}
-    userPostsList={userPostsList}
     index={index}
+    handleChange={handleChange}
+    editedPost={editedPost}
     />
     : 
     <div className='post-content'>
@@ -80,30 +94,30 @@ export default function Post({ post, setList, userPostsList, index }) {
     <div className="post-side extra-post">
     { isAuthor(post) ? 
     <div className="change-post">
-    <button
-    onClick={deleteAPost}
-    >
-      <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
-    </button>
-    <button
-    onClick={() => setUpdateForm(!updateForm)}
-    >
-      <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
-    </button>
+      <button
+      onClick={deleteAPost}
+      >
+        <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
+      </button>
+      <div className="edit-post">
+        {updateForm ? 
+        <button
+          onClick={updateAPost}
+        >
+          <img src={Update} width='20px' />
+        </button>: null}
+        <button
+        onClick={() => {
+          setEditedPost(post)
+          setUpdateForm(!updateForm)
+        }}
+        >
+          <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+        </button>
+      </div>
     </div>
     : null}
     </div>
-
-    {/* {showComments && <button
-    onClick={(() => setShowCreateComments(!showCreateComments))}
-    >Create Comment</button>} */}
-
-    {/* {showCreateComments && <CreateComment 
-    user_id={post.user_id}
-    post_id={post.id}
-    setAllComments={setAllComments}
-    resetCommentButtons={resetCommentButtons}
-    />} */}
 
     {showComments? <Comments
     setShowComments={setShowComments}

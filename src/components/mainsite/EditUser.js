@@ -29,56 +29,50 @@ export default function EditUser() {
     className="edit-form"
     onSubmit={submitUserChanges}
     >
-      {/* <div className="edit-section">
-      <label>Username</label>
-      <input 
-      onChange={handleChange}
-      value={newUserInfo.username}
-      name='username'
-      autoComplete="off"
-      />
-      </div> */}
-
       <div className="edit-section">
-      <label>Name</label>
-      <input 
-      onChange={handleChange}
-      value={newUserInfo.name}
-      name='name'
-      autoComplete="off"
-      />
-      </div>
-      <div className="edit-section">
-      <label>Hometown</label>
-      <input 
-      onChange={handleChange}
-      value={newUserInfo.hometown}
-      name='hometown'
-      autoComplete="off"
-      />
-      </div>
-      <div className="edit-section">
-      <label>Bio</label>
-      <input 
-      onChange={handleChange}
-      value={newUserInfo.bio}
-      name='bio'
-      autoComplete="off"
-      />
-      </div>
-      <div className="edit-section">
-      <label>Date of Birth</label>
-      <input 
-      type='date'
-      onChange={handleChange}
-      value={newUserInfo.dob.split("T")[0]}
-      name='dob'
-      />
-      </div>
-      <button
-      className="button-86"
-      type='submit'
-      >Confirm</button>
+        <label>Name</label>
+        <input 
+        onChange={handleChange}
+        value={newUserInfo.name}
+        name='name'
+        autoComplete="off"
+        />
+        </div>
+        <div className="edit-section">
+        <label>Hometown</label>
+        <input 
+        onChange={handleChange}
+        value={newUserInfo.hometown}
+        name='hometown'
+        autoComplete="off"
+        />
+        </div>
+        <div className="edit-section">
+        <label
+        className="label-bio"
+        >Bio</label>
+        <textarea
+        className="edit-bio"
+        rows='8' cols='25'
+        onChange={handleChange}
+        value={newUserInfo.bio}
+        name='bio'
+        autoComplete="off"
+        />
+        </div>
+        <div className="edit-section">
+        <label>Date of Birth</label>
+        <input 
+        type='date'
+        onChange={handleChange}
+        value={newUserInfo.dob.split("T")[0]}
+        name='dob'
+        />
+        </div>
+        <button
+        className="button-86"
+        type='submit'
+        >Confirm</button>
     </form>
   )
 }
