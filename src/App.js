@@ -18,8 +18,6 @@ function App() {
   return (
     <div className="App">
       {location.pathname === '/' ? null: <Nav />}
-      {location.pathname === '/' ? null: 
-      <h1>The Social Sphere</h1>}
       
       <Routes>
         <Route path="/" element={<StartPage />} />

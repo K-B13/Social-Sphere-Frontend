@@ -15,6 +15,8 @@ export default function ProfilePage() {
   const [ isFriend, setIsFriend ] = useState(false)
   const [ userPostsList, setUserPostsList ] = useState([])
 
+  const [ sidebar, setSidebar ] = useState(false)
+
   const { userId } = useParams()
   const navigate = useNavigate()
 
@@ -44,11 +46,15 @@ export default function ProfilePage() {
     <div>
         {userInformation.user ? <div className="user-display"><UserInformation 
         userDetails={userInformation.user}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
         />
 
         <FriendList 
         sampleFriends={userInformation.friends}
         userId={userInformation.user.id}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
         /> </div> : null}
 
       {!hasFriendRequest && 

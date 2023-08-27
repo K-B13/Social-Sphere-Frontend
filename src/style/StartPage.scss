@@ -1,264 +1,389 @@
-.start-page {
+.start-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #F5F7FF;
-  // height: 100%;
+  // min-height: 100vh;
 }
 
-.start-title{
+.start-title-container {
+  background-color: #457b9d;
   border-radius: 2rem;
-  padding: 1rem;
-  width: 50%;
-  align-items: flex-start;
-  // background-color: #333333;
-  font-size: 3rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  display: flex;
 }
 
 .start-logo {
-  background-color: #333333;
-  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.start-logo:hover {
-  animation-name: spin3D;
+.start-logo img:hover {
+  animation-name: spin2D;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   cursor: pointer;
 }
 
-.start-buttons {
-  // border: 0.2rem black solid;
-  border-radius: 2rem;
-  width: 50%;
-  padding: 1rem;
+.start-title {
+  font-size: 3rem;
+  width: 65vw;
+  color: #F5F7FF;
+  flex-grow: 1;
+}
+
+.start-container {
   display: flex;
   justify-content: space-around;
-  // background-color: #333333;
-  margin: 1rem 0 1rem 0;
+  margin: 2rem 1rem;
+  flex-grow: 1;
 }
 
-.start-button {
+.start-img-container {
+  background-color: #457b9d;
   border-radius: 2rem;
-  background-color: transparent;
-  font-weight: 600;
-  line-height: 2rem;
-  color: #F5F7FF;
-  border: none;
-  // padding: 0.4rem 1rem;
-  line-height: 2rem;
-  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
-  background-position: 100%;
-  background-size: 400%;
-  transition: background 300ms ease-in-out;
-  width: 8rem;
-  font-size: 1.5rem;
-}
-
-.start-button:hover {
-  background-position: 0;
-  cursor: pointer;
-}
-
-.start-area {
-  width: 80%;
-  background-color: #333333;
   padding: 1rem;
-  border-radius: 1rem;
-  margin: 1rem 0 3.13rem 0;
-  min-height: 16rem;
+  flex-grow: 1;
+  margin: 0 1rem;
+  display: flex;
+}
+
+.all-images {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 20rem;
+}
+
+.img {
+  width: 20rem;
+}
+
+.slide-show-1 {
+  transform: translate(0%);
+  transition: all 100ms ease-out;
+}
+
+.slide-show-2 {
+  transform: translate(-100%);
+  transition: all 100ms ease-out;
+}
+
+.slide-show-3 {
+  transform: translate(-200%);
+  transition: all 100ms ease-out;
+}
+
+.slide-show-4 {
+  transform: translate(-300%);
+  transition: all 100ms ease-out;
+}
+
+.start-form-container {
+  background-color: #457b9d;
+  border-radius: 2rem;
+  padding: 0 2rem;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #F5F7FF;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.start-form label {
+  margin: 0.5rem 0;
+}
+
+.start-form input {
+  margin: 0.4rem 0.5rem 0.7rem 0.5rem;
+  background-color: #33BBC5;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.4rem;
+  max-height: 1.8rem;
+}
+
+.password {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-// .login-area {
-//   width: 65vw;
-// }
-
-.login-form {
-  padding: 0;
-  margin: 0.5rem 0 1rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 1;
-  background-color: rgba(255, 255, 255, 0.15);  
-  backdrop-filter: blur(20px);
-  border: none;
-  border-radius: 1rem;
-}
-
-.both-login-inputs {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.6rem 0.5rem 1.5rem 0.5rem;
-  width: 40rem;
-  flex-grow: 1;
-}
-
-.single-login-input {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  margin: 0 1rem 0 1rem;
-  flex-grow: 1;
-}
-
-.single-login-input label {
-  margin: 0 0 0.5rem 0;
-} 
-
-.single-login-input input {
-  margin: 0.2rem 0;
-  border-radius: 2rem;
-  padding: 0.5rem 0.2rem;
-  background-color: gray;
-  border: none;
-  color: #F5F7FF;
-  text-align: center;
-}
-
-.single-login-input input::placeholder {
-  color: #F5F7FF;
-  text-align: center;
-  opacity: 0.5;
-}
-
-.single-login-input input:hover {
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;  
-}
-
-.login-button {
-  border-radius: 2rem;
+.reveal-button {
   background-color: transparent;
-  font-weight: 600;
-  line-height: 2rem;
-  color: #F5F7FF;
   border: none;
-  padding: 0.4rem 1rem;
-  line-height: 2rem;
-  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
-  background-position: 100%;
-  background-size: 400%;
-  transition: background 300ms ease-in-out;  
+  margin: 0rem;
 }
 
-.login-button:hover {
-  background-position: 0;
+.reveal-button:hover {
   cursor: pointer;
+
 }
 
-.signup-form {
-  padding: 0;
-  margin: 0.5rem 0 1rem 0;
+.start-form input::placeholder {
+  color: #F5F7FF;
+}
+
+.start-form button {
+  margin: 1rem 0;
+}
+
+.start-error {
+  min-height: 5rem;
+  margin: 0.5rem auto;
+}
+
+.error-message {
+  background-color: #457b9d;
+  color: #F5F7FF;
+  padding: 0.9rem;
+  border-radius: 2rem;
+  font-weight: bold;
+}
+
+.start-form-button {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 1.5rem;
+  margin: 0;
+  min-height: 3rem;
+  outline: none;
+  overflow: visible;
+  padding: 1.3rem 1.6rem;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .start-form-button {
+    padding: 1.2rem 2rem;
+  }
+}
+
+.start-form-button:before,
+.start-form-button:after {
+  border-radius: 2rem;
+}
+
+.start-form-button:before {
+  background-image: linear-gradient(92.83deg, #C8FFE0 0, #33BBC5 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.start-form-button:after {
+  background-color: initial;
+  background-image: linear-gradient(#457b9d 0, #075151 100%);
+  bottom: 0.2rem;
+  content: "";
+  display: block;
+  left: 0.2rem;
+  overflow: hidden;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.start-form-button:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, #6ee6de 0, #33BBC5 100%);
+}
+
+.start-form-button:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.start-form-button:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+.create-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-to-signup {
+  margin: 0 0.7rem;
+  border: none;
+  background-color: transparent;
+  color: #F5F7FF;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.go-to-signup:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@keyframes spin2D {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+// Sign Up Page
+
+.both-signup-input {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 1;
-  min-height: 10rem;
-  background-color: rgba(255, 255, 255, 0.15);  
-  backdrop-filter: blur(20px);
-  border: none;
-  border-radius: 1rem;
-}
-
-.both-signup-inputs {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.6rem 0.5rem 1.8rem 0.5rem;
-  flex-grow: 1;
-  margin: 0;
 }
 
 .single-signup-input {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
-  margin: 0 1rem 0 1rem;
-  flex-grow: 1;
+  margin: 1rem 0.2rem;
+  max-height: 4rem;
 }
 
 .single-signup-input label {
-  margin: 0 0 0.2rem 0;
-  flex-grow: 1;  
-} 
+  flex-grow: 1;
+}
 
 .single-signup-input input {
-  margin: 0.2rem 0;
-  flex-grow: 1;  
-  border-radius: 2rem;
-  padding: 0.2rem;
-  background-color: gray;
-  border: none;
-  color: #F5F7FF;
+  flex-grow: 1;
 }
 
-.single-signup-input input::placeholder {
-  color: #F5F7FF;
-  text-align: center;
-  opacity: 0.5;
-}
-
-.single-signup-input input:hover {
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;  
-}
-
-.login-message {
-  margin: 0 0.5rem;
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) { 
   .start-title {
-    width: 80%;
+    font-size: 2.5rem;
   }
 
-  .both-signup-inputs {
+  .start-img-container {
+    margin: 0 0.5rem;
+  }
+
+  .start-form-container {
+    margin: 0 0.5rem;
+  }
+
+  .all-images, .img {
+    width: 17rem;
+  }
+
+}
+
+@media screen and (max-width: 600px) { 
+  .start-title {
+    font-size: 2.4rem;
+  }
+
+  .start-container {
     flex-direction: column;
-    width: 85vw;
+    margin: 0 0.3rem;
+  }
+
+  .start-form-container {
+    margin: 0.5rem 0.5rem;
+  }
+
+  .start-form input {
+    margin: 0.4rem 1.1rem 0.7rem 1.1rem;
+  }
+
+  .all-images, .img {
+    width: 25rem;
+  }
+
+  .start-form-button {
+    padding: 0.8rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) { 
+  .start-title {
+    font-size: 1.8rem;
+  }
+
+  .start-logo img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .all-images, .img {
+    width: 20.2rem;
   }
 
   .single-signup-input {
-    margin: 0.2rem;
-  }
-  
-  .both-login-inputs {
     flex-direction: column;
-    width: 20rem;
   }
-
-  .start-area {
-    width: 85%;
-  }
-
-  .signup-form {
-    min-height: 14rem;
-  }
-
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 400px) { 
   .start-title {
-    width: 95vw;
+    font-size: 1.4rem;
   }
 
-  .start-buttons {
-    width: 85vw;
+  .start-logo img {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
-  .start-button {
-    padding: 0 0.5rem;
+  .all-images, .img {
+    width: 20.5rem;
+  }
+}
+
+@media screen and (max-width: 330px) { 
+  .start-img-container {
+    margin: 0rem 2rem;
   }
 
-  .login-form {
-    // margin: 0 0.9rem;
-    width: 90vw;
+  .all-images, .img {
+    width: 17rem;
   }
 
-  .both-login-inputs {
-    width: 20rem;
+  .start-form-container {
+    padding: 0.4rem 1rem;
+    margin: 0.4rem 1rem;
   }
 }

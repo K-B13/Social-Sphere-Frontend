@@ -27,20 +27,20 @@ export default function CreatePostForm({ setUserPostsList, setTypeOfPost }) {
     className="create-post-form"
     onSubmit={brandNewPost}
     >
-      <label>Your Message</label>
+      <label>Create Post</label>
       <textarea
       onChange={handleChange}
       value={commentForm}
       type='text-box'
       className="post-description"
       rows="22" cols="35"
-      placeholder='Write your message here...'
+      placeholder='Write your post here...'
       />
       <div className='wrap'>
         <button
         className="post-btn"
         type='submit'
-        >Post Message</button>
+        >Create Post</button>
       </div>
     </form>
     <div
