@@ -1,6 +1,6 @@
 nav {
   width: 80vw;
-  background-color: #333333;
+  background-color: #457b9d;
   margin: 0.3rem auto;
   display: flex;
   justify-content: space-around;
@@ -8,18 +8,39 @@ nav {
   padding: 0.4rem 0.3rem 0.2rem 0.3rem;
 }
 
-.nav-bar-logo {
+.nav-bar-logo-container {
   display: flex;
   justify-content: flex-start;
   flex-grow: 2;
 }
 
-.nav-bar-logo a {
-  margin: 0.2rem 0 0 1.5rem;
-  padding: 0.3rem 0 0 0;
+.nav-bar-logo {
+  margin: 0 0 0 1.5rem;
+  padding: 0.3rem 0 0.3rem 0;
+  display: none;
 }
 
-.nav-bar-logo a:hover {
+.nav-bar-title {
+  margin: 0.7rem 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #F5F7FF;
+  background-image: linear-gradient(45deg, #C8FFE0 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+  border-radius: 2rem;
+  padding: 0.3rem;
+}
+
+.nav-bar-title:hover {
+  scale: 1.1;
+  border-radius: 2rem;
+  background-color: #C8FFE0;
+  color: #457b9d;
+}
+
+.nav-bar-logo:hover {
   border-radius: 2rem;
   scale: 1.2;
   animation-name: spin3D;
@@ -30,38 +51,18 @@ nav {
 
 .nav-bar-items {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
 }
 
-.nav-bar-items a {
+.nav-link {
   padding: 0.3rem 0.3rem 0.2rem 0.2rem;
-  color: #F5F7FF;
-  text-decoration: none;
+  margin: 0 0.8rem;
 }
 
 .nav-link:hover {
-  text-decoration: underline;
   scale: 1.1;
-  padding: 0.2rem 0.06rem 0.3rem 0.1rem;
-  font-weight: bold;
-}
-
-.user-icon {
-  // padding: 0.2rem 0.3rem 0.3rem 0.2rem;
-  margin: 0.2rem 0.3rem 0.3rem 0.2rem;
-  background-color: white;
-  border-radius: 2rem;
-}
-
-.user-icon:hover {
-  scale: 1.1;
-  // margin: 0.1rem 0.2rem 0.2rem 0.1rem;
-  animation-name: spin3D;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out
 }
 
 .logout-btn {
@@ -72,7 +73,7 @@ nav {
   color: #F5F7FF;
   font-weight: bold;
   font-size: 0.9rem;
-  background-image: linear-gradient(45deg, gray 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #C8FFE0 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   transition: background 300ms ease-in-out;
@@ -90,32 +91,33 @@ nav {
   to { transform: rotateY(360deg) }
 }
 
+@media screen and (max-width: 700px) {
+  .nav-bar-logo {
+    display: block;
+    width: 1.8rem;
+  }
+  
+  .nav-bar-title {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 0.3rem 0.22rem 0.2rem 0.14rem;
+    margin: 0 0.5rem;
+  }
+
+  .nav-link img {
+    width: 1.5rem;
+  }
+}
+
 @media screen and (max-width: 600px) { 
   nav {
     width: 95vw;
   }
 
-  .nav-bar-logo {
+  .nav-bar-logo-container {
     padding: 0 0 0.4rem 0;
-  }
-
-  .nav-bar-logo a img {
-    width: 28px;
-  }
-
-  .nav-link:hover {
-    padding: 0 0.25rem;
-    scale: none;
-    text-decoration: none;
-    font-weight: normal;
-  }
-
-  .nav-bar-items a {
-    font-size: 0.8rem;
-  }
-
-  .user-icon {
-    width: 30px;
   }
 
   .logout-btn {
@@ -130,15 +132,9 @@ nav {
     width: 100vw;
   }
 
-  .nav-bar-items a {
-    font-size: 0.72rem;
-  }
-
-  .nav-link:hover {
-    scale: none;
-    padding: 0 0.25rem;
-    text-decoration: none;
-    font-size: normal;
+  .nav-link {
+    padding: 0.3rem 0.17rem 0.2rem 0.1rem;
+    margin: 0 0.5rem;
   }
 }
 

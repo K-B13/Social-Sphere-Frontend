@@ -6,6 +6,7 @@ import FriendList from "./FriendList"
 import CreatePostForm from "./CreatePostForm"
 import { retrieveFriends } from "../../api/FriendshipApis"
 
+
 export default function MyProfile() {
 const [ userPostsList, setUserPostsList ] = useState({
   userPosts: [],
@@ -14,6 +15,7 @@ const [ userPostsList, setUserPostsList ] = useState({
 const [ userDetails, setUserDetails ] = useState({})
 const [ typeOfPost, setTypeOfPost ] = useState(0)
 const [ sampleFriends, setSampleFriends ] = useState([])
+const [ sidebar, setSidebar ] = useState(false)
 
   useEffect(() => {
     const userInfo =JSON.parse(localStorage.getItem('User Info'))
@@ -27,10 +29,6 @@ const [ sampleFriends, setSampleFriends ] = useState([])
     .then((data) => setSampleFriends(data))
   }, [])
 
-  // const showPosts = () => {
-  //   setRevealPost(!revealPost)
-  //   setTypeOfPost(0)
-  // }
   const showStatusUpdates = () => {
     setTypeOfPost(1)
   }
@@ -44,16 +42,18 @@ const [ sampleFriends, setSampleFriends ] = useState([])
       <div className='user-display'>
       <UserInformation 
       userDetails={userDetails}
+      sidebar={sidebar}
+      setSidebar={setSidebar}
       />
       
       <FriendList 
       sampleFriends={sampleFriends}
       userId={userDetails.id}
+      sidebar={sidebar}
+      setSidebar={setSidebar}
       />
-      </div>
-      {/* <button
-      onClick={showPosts}
-      >{revealPost? 'Hide CreatePost': 'Create Post'}</button> */}
+
+    </div>
       <div>
         {typeOfPost === 1? null: <button
         className="create-post-icon"
@@ -82,7 +82,7 @@ const [ sampleFriends, setSampleFriends ] = useState([])
         <div className="post-side">
           <button 
           onClick={() => setTypeOfPost(0)}
-          className="close">
+          className="close-comment">
             <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
       </button>
           

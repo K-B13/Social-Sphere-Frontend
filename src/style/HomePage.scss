@@ -5,18 +5,3 @@
   height: 80vh;
 }
 
-h1 {
-  background-color: #333333;
-  border-radius: 2rem;
-  width: 60%;
-  margin: 0.5rem auto;
-  padding: 0.5rem 0;
-  color: #F5F7FF;
-}
-
-@media screen and (max-width: 600px) { 
-  h1 {
-    width: 80%;
-  }
-}
-
