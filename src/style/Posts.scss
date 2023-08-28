@@ -1,149 +1,96 @@
 .post-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow-y: auto;
-  max-height: 80vh;
+  grid-template-columns: 1fr;
 }
 
 .pp-post-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow-y: auto;
-  max-height: 65vh;
-  
+  grid-template-columns: 1fr;  
 }
 
 .post {
-  box-shadow: #F5F7FF 0.2rem 0.2rem 0.4rem;
+  box-shadow: #457b9d 0.5rem 0.4rem 0.4rem;
   border-radius: 2rem;
   display: flex;
-  margin: 1.7rem;
-  color: #F5F7FF;
+  margin: 1.7rem 5rem 2.4rem 5rem;
+  color: #33BBC5;
+  flex-direction: column;
+  border: none;
 }
 
 .post:hover {
-  background-color: #9A9FB3;
+  background-color: #457b9d;
+  box-shadow: #33BBC5 0.5rem 0.4rem 0.4rem;
+  color: #C8FFE0;
 }
 
-.extra-post {
+.post-heading {
   display: flex;
-  min-width: 3.6rem;
+  justify-content: space-between;
+}
+
+.post-author {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+.post-close-container {
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.post-close {
+  background-color: transparent;
+  border: none;
+}
+
+.post-close:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.post-body {
+  text-align: left;
+  margin: 0.5rem 1.5rem;
+}
+
+.post-likes {
+  font-size: 0.6rem;
+}
+
+.post-btns {
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.2rem;
   margin: 0.2rem;
 }
 
-.left-post {
-  justify-content: flex-end;
-  flex-direction: column;
-  margin: 1rem 0.3rem
-}
-
-.left-post div p {
-  margin: 0;
-}
-
-.left-post button {
-  background-color: transparent;
-  border: none;
-}
-.left-post button:hover {
+.post-btns:hover {
+  scale: 1.3;
   cursor: pointer;
-  scale: 1.1;
-}
-
-.change-post {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 1rem;
-  flex-grow: 1;
-}
-
-.change-post button {
-  background-color: transparent;
-  border: none;
-}
-
-.change-post button:hover {
-  cursor: pointer;
-  scale: 1.1;
-}
-
-.edit-post {
-  display: flex;
-  flex-direction: column;
-}
-
-.edit-post button {
-  margin: 0.2rem 0;
-}
-
-.main-post-section {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0.2rem 0 1rem 0;
-}
-
-.post-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.post-content h3 {
-  margin: 0.4rem;
-}
-
-
-.view-comment-btn {
-  border: none;
-  border-radius: 2rem;
-  background-color: transparent;
-  color: #F5F7FF;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 150ms ease-in-out;
-  padding: 0.4rem;
-  width: 8rem;
-  margin: 0.4rem auto;
-}
-
-.view-comment-btn:after {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 100%;
-  background: #333333;
-  z-index: -1;
-  transition: width 150ms ease-in-out;
-}
-
-.view-comment-btn:hover {
-  color: #F5F7FF;
-  cursor: pointer;
-}
-
-.view-comment-btn:hover:after {
-  width: 110%;
 }
 
 .post-update-form textarea {
-  background-color: gray;
+  background-color: #33BBC5;
   border: none;
-  color: #F5F7FF;
+  color: #C8FFE0;
+  width: 50rem;
+  resize: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .post-update-form textarea {
+    width: 38rem;
+  }
 }
 
 @media screen and (max-width: 800px) { 
   .post-container, .pp-post-container {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .post-update-form textarea {
+    width: 28rem;
   }
 }
 
@@ -158,27 +105,9 @@
     margin: 0.4rem 0.2rem;
   }
 
-  .post-content h3 {
-    font-size: 0.8rem;
-    margin: 0.5rem 0;
-  }
-
-  .post-content p {
-    font-size: 0.8rem;
-    margin: 0.5rem 0;
-  }
-
-  .likes {
-    font-size: 0.8rem;
-  }
-
-  .change-post button img {
-    width: 18px;
-  }
-
   .post-update-form textarea {
     margin: 0.2rem 0 0 0;
-    resize: none;
+    width: 24rem;
   }
 
   .post-update-form p {
@@ -189,7 +118,12 @@
 
 @media screen and (max-width: 420px) {
   .post-update-form textarea{
-    width: 8rem;
+    width: 17rem;
   } 
-  
+} 
+
+@media screen and (max-width: 300px) {
+  .post-update-form textarea{
+    width: 14.5rem;
+  } 
 } 

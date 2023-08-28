@@ -6,6 +6,7 @@ import { getToken, isAuthor, loadUserData } from "../../helperFunctions/Helper"
 import { registerLike } from "../../api/LikeApis"
 import Update from "../../update.png"
 import { updatePosts } from "../../api/PostApis"
+import { Edit, CommentPicture } from '../../pictures/index'
 
 export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
@@ -49,85 +50,97 @@ export default function Post({ post, setList, userPostsList, index }) {
   }
 
   return(
-    <div className="post">
-      <div className="post-side extra-post left-post">
-      <div>
-      {!postLike.liked_by.includes(loadUserData().username) 
-    ? <button
-    onClick={likeButton}
-    >
-      <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='20px' />
-    </button>
-    : null
-    }
-    <p className="likes">Likes: {postLike.like_count}</p>
-    </div> 
-      </div>
-      <div className='main-post-section'>
-    {updateForm ? 
-    <PostForm 
-    post={post}
-    index={index}
-    handleChange={handleChange}
-    editedPost={editedPost}
-    />
-    : 
-    <div className='post-content'>
-      
-      <h3>{post.content}</h3>
-      <p>Author: {post.author}</p>
-      <p>Liked by:
-      {postLike.liked_by.map((info, index) => {
-        return index === 0 ? ` ${info}`: `, ${info}`
-      })}
-      </p>
-    </div>}
 
-    {!showComments &&
-    <button
-    className="view-comment-btn"
-    onClick={() => {
-      setShowComments(true)
-    }}
-    >View Comments</button>}
-    </div>
-    <div className="post-side extra-post">
-    { isAuthor(post) ? 
-    <div className="change-post">
-      <button
-      onClick={deleteAPost}
-      >
-        <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
-      </button>
-      <div className="edit-post">
+    <div className="post">
+
+      <div className="post-heading">
+        <p
+        className="post-author"
+        >
+          {post.author}
+        </p>
+
+        { isAuthor(post) ? 
+          <div className="post-close-container">
+            <button
+            className="post-close"
+            onClick={deleteAPost}
+            >
+              <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
+            </button>
+        </div>
+          : null}
+      </div>
+
+      {updateForm ? 
+        <PostForm 
+        post={post}
+        index={index}
+        handleChange={handleChange}
+        editedPost={editedPost}
+        />
+        : 
+        <div className="post-content">
+          <h5
+          className="post-body"
+          >{post.content}</h5>
+          <p
+            className="post-likes"
+          >Likes: {postLike.like_count}. Liked by:
+          {postLike.liked_by.map((info, index) => {
+            return index === 0 ? ` ${info}`: `, ${info}`
+          })}
+          </p>
+        </div>
+      }
+
+      <div className="post-footer">
+        {!postLike.liked_by.includes(loadUserData().username) 
+          ? <button
+          onClick={likeButton}
+          className='post-btns'
+          >
+            <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='15px' />
+          </button>
+          : null
+          }
+        {!showComments &&
+          <button
+          onClick={() => {
+            setShowComments(true)
+          }}
+          className='post-btns'
+          >
+            <img src={CommentPicture}  width='15px'/>
+          </button>}
+
         {updateForm ? 
         <button
           onClick={updateAPost}
+          className='post-btns'
         >
-          <img src={Update} width='20px' />
+          <img src={Update} width='15px' />
         </button>: null}
         <button
         onClick={() => {
           setEditedPost(post)
           setUpdateForm(!updateForm)
         }}
+        className='post-btns'
         >
-          <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+          <img src={Edit} width='15px' />
         </button>
       </div>
-    </div>
-    : null}
-    </div>
 
-    {showComments? <Comments
-    setShowComments={setShowComments}
-    userPostsList={userPostsList}
-    user_id={post.user_id}
-    post_id={post.id}
-    post={post}
-    allComments={allComments}
-    setAllComments={setAllComments}
-    />: null}
+      {showComments? <Comments
+      setShowComments={setShowComments}
+      userPostsList={userPostsList}
+      user_id={post.user_id}
+      post_id={post.id}
+      post={post}
+      allComments={allComments}
+      setAllComments={setAllComments}
+      />: null}
     </div>
   )
 }

@@ -11,5 +11,7 @@ import Message from './message.png';
 import ProfilePic from './profile.png';
 import LogOut from './logout.png';
 import NoPic from './default-person.png';
+import Edit from './edit.png';
+import CommentPicture from './comment.png';
 
-export { Friends1, Friends2, Friends3, Friends4, Logo, Hide, Reveal, Search, Request, Message, ProfilePic, LogOut, NoPic }
+export { Friends1, Friends2, Friends3, Friends4, Logo, Hide, Reveal, Search, Request, Message, ProfilePic, LogOut, NoPic,Edit, CommentPicture }
