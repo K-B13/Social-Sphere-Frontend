@@ -40,6 +40,7 @@ export default function Login( { handleSubmit, userDetails, returningUser, setEr
 
       <div className="start-form-container">
         <form 
+        onSubmit={returningUser}
         className="start-form">
           {/* Deals with the email information as the user types into the input box the userDetails email section is updated */}
           <label>Email</label>
@@ -64,6 +65,7 @@ export default function Login( { handleSubmit, userDetails, returningUser, setEr
             {/* The button toggles the hide password boolean between true and false. Also the image on the button changes icon depending on the hide password state. */}
             <button
               className='reveal-button'
+              type='button'
               onClick={(e) => {
                 e.preventDefault()
                 setHidePassword(!hidePassword)}}
@@ -74,7 +76,7 @@ export default function Login( { handleSubmit, userDetails, returningUser, setEr
           {/* Logs in the user if the details are correct */}
           <button
           className="start-form-button"
-          onClick={returningUser}
+          type='submit'
           >Login</button>
 
           <div className="create-account">

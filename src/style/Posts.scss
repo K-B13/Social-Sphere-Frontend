@@ -3,11 +3,6 @@
   grid-template-columns: 1fr;
 }
 
-.pp-post-container {
-  display: grid;
-  grid-template-columns: 1fr;  
-}
-
 .post {
   box-shadow: #457b9d 0.5rem 0.4rem 0.4rem;
   border-radius: 2rem;
@@ -84,11 +79,6 @@
 }
 
 @media screen and (max-width: 800px) { 
-  .post-container, .pp-post-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
   .post-update-form textarea {
     width: 28rem;
   }

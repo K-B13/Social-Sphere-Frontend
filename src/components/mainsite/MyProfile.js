@@ -37,7 +37,7 @@ const [ sidebar, setSidebar ] = useState(false)
     setTypeOfPost(2)
   }
   return (
-    <div>
+    <div className="profile-page">
       <h2 className="mp-title">{`${JSON.parse(localStorage.getItem('User Info')).username}'s Page`}</h2>
       <div className='user-display'>
       <UserInformation 

@@ -96,7 +96,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #F5F7FF;
+  color: #C8FFE0;
   font-weight: bold;
   flex-grow: 1;
 }
@@ -112,6 +112,7 @@
   border-radius: 2rem;
   padding: 0.4rem;
   max-height: 1.8rem;
+  color: #C8FFE0;
 }
 
 .password {
@@ -132,7 +133,7 @@
 }
 
 .start-form input::placeholder {
-  color: #F5F7FF;
+  color: #C8FFE0;;
 }
 
 .start-form button {
@@ -146,7 +147,7 @@
 
 .error-message {
   background-color: #457b9d;
-  color: #F5F7FF;
+  color: #C8FFE0;;
   padding: 0.9rem;
   border-radius: 2rem;
   font-weight: bold;
@@ -256,7 +257,7 @@
   margin: 0 0.7rem;
   border: none;
   background-color: transparent;
-  color: #F5F7FF;
+  color: #6ee6de;
   font-size: 1rem;
   font-weight: bold;
 }

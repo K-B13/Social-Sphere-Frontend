@@ -66,7 +66,7 @@ export default function MainSite() {
         <div className="post-side">
           <button 
           onClick={() => setTypeOfPost(0)}
-          className="close-comment">
+          className="close-comment close-image">
             <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
           </button>
           

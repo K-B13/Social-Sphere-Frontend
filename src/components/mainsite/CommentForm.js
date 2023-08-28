@@ -12,7 +12,6 @@ export default function CommentForm({ comment, handleChange, editedComment }) {
       value={editedComment.content}
       onChange={handleChange}
       />
-      <p>{comment.author}</p>
     </form>
   )
 }

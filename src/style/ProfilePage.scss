@@ -140,7 +140,6 @@
   flex-grow: 1;
   justify-content: space-around;
   overflow: hidden;
-  // padding: 2rem 0 0 0;
 }
 
 .create-post-icon {
@@ -248,6 +247,11 @@ content: '';
   display: none;
 }
 
+.profile-page {
+  height: 80vh;
+  overflow-y: auto;
+}
+
 @keyframes ring {
   0% {
     width: 30px;
@@ -276,6 +280,7 @@ content: '';
   display: flex;
   justify-content: space-between;
   z-index: 3;
+  background-color: #457b9d;
 }
 
 .post-image {
@@ -290,20 +295,24 @@ content: '';
   border-radius: 2rem;
   background-color: transparent;
   font-weight: 600;
-  color: #F5F7FF;
+  color: #33BBC5;
   border: none;
   padding: 0.4rem 1rem;
   line-height: 2rem;
-  background-image: linear-gradient(45deg, #333333 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #33BBC5 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   transition: background 300ms ease-in-out;
   text-decoration: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .unfriend:hover {
   background-position: 0;
   cursor: pointer;
+  color: #C8FFE0;
 }
 
 .only-sidebar-profile {
@@ -404,5 +413,19 @@ content: '';
 
   .profile-hamburger {
     margin: 0.65rem 1.1rem 0 0;
+  }
+
+  .post-image { 
+    margin: 0.5rem;
+  }
+
+  .close-image {
+    transform: translate(-1rem);
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .close-image {
+    transform: translate(-2rem);
   }
 }

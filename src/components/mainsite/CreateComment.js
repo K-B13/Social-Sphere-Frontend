@@ -19,6 +19,7 @@ export default function CreateComment({ user_id, post_id, setAllComments }){
   }
   return(
     <form
+    className="create-comment-form"
     onSubmit={createNewComment}
     >
       <textarea

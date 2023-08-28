@@ -7,11 +7,14 @@ import { registerLike } from "../../api/LikeApis"
 import Update from "../../update.png"
 import { updatePosts } from "../../api/PostApis"
 import { Edit, CommentPicture } from '../../pictures/index'
+import { useNavigate } from "react-router"
 
 export default function Post({ post, setList, userPostsList, index }) {
   const [ updateForm, setUpdateForm ] = useState(false)
   const [ showComments, setShowComments ] = useState(false)
   const [ editedPost, setEditedPost ] = useState(post)
+
+  const navigate = useNavigate();
 
   const [ allComments, setAllComments ] = useState([])
   const [postLike, setPostLike ] = useState({
@@ -33,6 +36,7 @@ export default function Post({ post, setList, userPostsList, index }) {
       like_count: data.like_count,
       liked_by: [...data.liked_by],
     })})
+    .catch(() => {navigate('/')})
   }
 
   const handleChange = (e) => {
