@@ -4,7 +4,7 @@ import { deleteComment, updateComment } from "../../api/CommentApis"
 import { registerLike } from "../../api/LikeApis"
 import CommentForm from "./CommentForm"
 import Update from "../../update.png"
-
+import { useNavigate } from "react-router"
 
 export default function Comment({ comment, setAllComments, post }) {
 
@@ -14,6 +14,8 @@ export default function Comment({ comment, setAllComments, post }) {
     liked_by: [...comment.liked_by]
   })
   const [ editedComment, setEditedComment ] = useState(comment)
+
+  const navigate = useNavigate()
 
   const deleteAComment = () => {
     deleteComment(comment.user_id, comment.post_id, comment.id)
@@ -30,6 +32,7 @@ export default function Comment({ comment, setAllComments, post }) {
       like_count: data.like_count,
       liked_by: [...data.liked_by],
     })})
+    .catch(() => {navigate('/')})
   }
 
   const handleChange = (e) => {
@@ -48,18 +51,17 @@ export default function Comment({ comment, setAllComments, post }) {
 
   return(
     <div className="comment">
-      <div className="comment-side extra-post left-post">
-      {!commentLike.liked_by.includes(loadUserData().username) ? 
-        <button
-        onClick={likeButton}
+      <div className="comment-header">
+        {comment.author && <p>{comment.author}</p>}
+
+        {(isAuthor(comment) || isPostOwner(post)) && <button
+        onClick={deleteAComment}
+        className='comment-close'
         >
-          <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='20px' />
-        </button>
-        : null
-        }
-        <p>Likes: {commentLike.like_count}</p>
+          <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
+        </button>}
       </div>
-      <div className="comment-mid">
+
         {updateCommentForm ?
 
         <CommentForm 
@@ -70,46 +72,49 @@ export default function Comment({ comment, setAllComments, post }) {
         editedComment={editedComment}
         />
         :
-        <div>
-          <p>{comment.content}</p>
-
-          {comment.author && <p>{comment.author}</p>}
-          <p>Liked by:
-          {commentLike.liked_by.map((info, index) => {
-          return index === 0 ? ` ${info}`: `, ${info}`
-          })}
-          </p>
+        <div className="comment-body">
+          <p className="comment-content">{comment.content}</p>
+          
         </div>
         }
 
-      </div>
-      <div className='comment-side extra-post'>
-        <div className="change-post">
-        {(isAuthor(comment) || isPostOwner(post)) && <button
-        onClick={deleteAComment}
-        >
-          <img src='https://img.icons8.com/?size=2x&id=4887&format=png' width='20px' />
-        </button>}
-
-        <div className="edit-comment">
-          {updateCommentForm ? <button
-            onClick={updateAComment}
-          >
-            <img src={Update} width='20px' />
-          </button>: null}
-          {isAuthor(comment) && 
-          <button
-          onClick={() => {
-            setEditedComment(comment)
-            setUpdateCommentForm   (!updateCommentForm)
-          }}
-          >
-            <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
-          </button>
-          }
+        <div className="comment-footer">
+          <p className="comment-like">
+            Likes: {commentLike.like_count}. Liked by:
+            {commentLike.liked_by.map((info, index) => {
+              return index === 0 ? ` ${info}`: `, ${info}`
+            })}
+          </p>
+            <div>
+              {!commentLike.liked_by.includes(loadUserData(). username) ? 
+              <button
+              className="comment-btns"
+              onClick={likeButton}
+              >
+                <img src='https://img.icons8.com/?size=512&id=24816&format=png' width='20px' />
+              </button>
+              : null
+              }
+              {updateCommentForm ? 
+                <button
+                className="comment-btns"
+                onClick={updateAComment}
+                > 
+                  <img src={Update} width='20px' />
+                </button>: null}
+                {isAuthor(comment) && 
+                  <button
+                  className="comment-btns"
+                  onClick={() => {
+                  setEditedComment(comment)
+                  setUpdateCommentForm   (!updateCommentForm)
+                  }}
+                  >
+                  <img src='https://img.icons8.com/?size=512&id=12082&format=png' width='20px' />
+                </button>
+              }
+            </div>
           </div>
-        </div>
-      </div>
     </div>
   )
 }

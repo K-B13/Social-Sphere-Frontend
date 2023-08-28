@@ -10,7 +10,6 @@ export default function PostForm({ post, handleChange, editedPost }) {
       value={editedPost.content}
       onChange={handleChange}
       />
-      <p>Author: {post.author}</p>
     </form>
   )
 }

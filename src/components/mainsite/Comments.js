@@ -13,28 +13,35 @@ export default function Comments({ user_id, post_id, userPostsList, allComments,
   }, [userPostsList])
   return(
     <div className="comments">
-      <div className="comments-side"></div>
+      <div>
+        <div className="post-heading">
+          <p className="post-author">{post.author}</p>
+          <div className="post-close-container">
+            <button 
+              onClick={() => setShowComments(false)}
+              className="post-close">
+                <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
+            </button>
+          </div>
+        </div>
+        <h5 className="post-comment">{post.content}</h5>
+      </div>
       <div className="comments-mid">
+        <div className="comment-container">
+          {allComments.map((comment) => {
+            return <Comment 
+            comment={comment}
+            key={comment.id}
+            setAllComments={setAllComments}
+            post={post}
+          />
+          })}
+        </div>
         <CreateComment 
         user_id={post.user_id}
         post_id={post.id}
         setAllComments={setAllComments}
         />
-        {allComments.map((comment) => {
-          return <Comment 
-          comment={comment}
-          key={comment.id}
-          setAllComments={setAllComments}
-          post={post}
-        />
-        })}
-      </div>
-      <div className="comments-side">
-        <button 
-          onClick={() => setShowComments(false)}
-          className="close-comment">
-            <img src='https://img.icons8.com/?size=512&id=66767&format=png' width='30px'/>
-        </button>
       </div>
     </div>
   )

@@ -43,7 +43,7 @@ export default function ProfilePage() {
   }
 
   return(
-    <div>
+    <div className="profile-page">
         {userInformation.user ? <div className="user-display"><UserInformation 
         userDetails={userInformation.user}
         sidebar={sidebar}
